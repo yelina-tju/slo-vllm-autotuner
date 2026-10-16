@@ -1,0 +1,5 @@
+source,offered_rps,completed,failed,achieved_rps,request_goodput_rps,request_compliance_rate,p99_ttft_ms,p99_e2el_ms,ttft_violations,e2el_violations,any_slo_violations,window_slo_feasible
+poisson_rps20_baseline_nocache_seed14_i256_o64.json,20.0,1000,0,19.875103689348936,19.875103689348936,1.0,65.89751619845629,385.2290028706193,0,0,0,True
+poisson_rps30_baseline_nocache_seed11_i256_o64.json,30.0,1000,0,29.721210842382444,27.908216980997114,0.939,75.20056553184986,445.56791849434376,0,61,61,False
+poisson_rps40_baseline_nocache_seed12_i256_o64.json,40.0,1000,0,39.50395392782185,24.610963297033013,0.623,83.96597128361464,515.125844553113,0,377,377,False
+poisson_rps50_baseline_nocache_seed13_i256_o64.json,50.0,1000,0,49.14520995513231,10.320494090577785,0.21,103.29733733087778,541.6832288727163,16,790,790,False

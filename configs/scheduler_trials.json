@@ -1,0 +1,33 @@
+{
+  "policy": {
+    "max_p99_ttft_ms": 100.0,
+    "max_p99_e2el_ms": 400.0,
+    "min_repetitions": 3,
+    "required_pass_rate": 1.0,
+    "ttft_safety_margin_ms": 0.0,
+    "e2el_safety_margin_ms": 0.0
+  },
+  "candidates": [
+    {
+      "name": "mbt1024-seq256",
+      "max_num_batched_tokens": 1024,
+      "max_num_seqs": 256,
+      "patterns": ["poisson_rps*_mbt1024_seq256_*.json"]
+    },
+    {
+      "name": "mbt2048-seq256",
+      "max_num_batched_tokens": 2048,
+      "max_num_seqs": 256,
+      "patterns": [
+        "poisson_rps*_mbt2048_seq256_*.json",
+        "poisson_rps25_boundary_seed*_i256_o64.json"
+      ]
+    },
+    {
+      "name": "mbt4096-seq256",
+      "max_num_batched_tokens": 4096,
+      "max_num_seqs": 256,
+      "patterns": ["poisson_rps*_mbt4096_seq256_*.json"]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "description": "Pilot candidates for the 80/20 short/document mixed workload",
+  "evidence_policy": {
+    "min_repetitions": 3,
+    "required_window_pass_rate": 1.0,
+    "note": "Seeds 43-45 provide three repeated windows per candidate and rate; 3/3 is an empirical safety rule, not certainty about the population."
+  },
+  "candidates": [
+    {
+      "name": "mbt2048_fcfs",
+      "status": "repeated_boundary_complete",
+      "max_num_batched_tokens": 2048,
+      "scheduling_policy": "fcfs",
+      "patterns": [
+        "mixed_rps3_mbt2048_fcfs_seed4[3-5].json",
+        "mixed_rps4_mbt2048_fcfs_seed4[3-5].json"
+      ],
+      "mechanism": "selected static fallback from Experiment 003"
+    },
+    {
+      "name": "mbt1024_fcfs",
+      "status": "repeated_boundary_complete",
+      "max_num_batched_tokens": 1024,
+      "scheduling_policy": "fcfs",
+      "patterns": [
+        "mixed_rps3_mbt1024_fcfs_seed4[3-5].json",
+        "mixed_rps4_mbt1024_fcfs_seed4[3-5].json"
+      ],
+      "mechanism": "force a 2048-token prompt into at least two prefill chunks"
+    },
+    {
+      "name": "mbt2048_priority_short_first",
+      "status": "pilot_complete",
+      "mechanism": "schedule queued short requests before queued long requests"
+    },
+    {
+      "name": "concurrent_partial_prefill",
+      "status": "unsupported",
+      "reason": "vLLM 0.19.1 rejects non-default max_num_partial_prefills during engine configuration"
+    }
+  ]
+}

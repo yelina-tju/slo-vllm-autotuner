@@ -1,0 +1,73 @@
+{
+  "description": "Experiment 015 final real-GPU benchmark: two static baselines, boundary oracle, binary recovery and canary recovery on an identical trace, with cyclic execution-order balance.",
+  "seed": 90,
+  "metric_window_seconds": 30,
+  "phases": [
+    {
+      "name": "balanced_before",
+      "duration_s": 60,
+      "request_rate": 16,
+      "long_fraction": 0
+    },
+    {
+      "name": "mixed_shift",
+      "duration_s": 150,
+      "request_rate": 6,
+      "long_fraction": 0.2
+    },
+    {
+      "name": "balanced_return",
+      "duration_s": 120,
+      "request_rate": 16,
+      "long_fraction": 0
+    }
+  ],
+  "modes": [
+    {
+      "name": "canary_recovery",
+      "adaptive": true,
+      "initial_policy": "balanced:mbt2048-seq256",
+      "controller_overrides": {
+        "compatible_recovery_canary_admission_limits_rps": [
+          8,
+          16
+        ],
+        "compatible_recovery_canary_pass_windows": 2
+      }
+    },
+    {
+      "name": "oracle_boundary",
+      "adaptive": false,
+      "initial_policy": "balanced:mbt2048-seq256",
+      "oracle_transitions": [
+        {
+          "at_s": 60,
+          "profile": "mixed_80_20"
+        },
+        {
+          "at_s": 210,
+          "profile": "balanced"
+        }
+      ]
+    },
+    {
+      "name": "static_conservative",
+      "adaptive": false,
+      "initial_policy": "mixed_80_20:selected:mbt1024_fcfs"
+    },
+    {
+      "name": "static_aggressive",
+      "adaptive": false,
+      "initial_policy": "balanced:mbt2048-seq256"
+    },
+    {
+      "name": "binary_recovery",
+      "adaptive": true,
+      "initial_policy": "balanced:mbt2048-seq256",
+      "controller_overrides": {
+        "compatible_recovery_canary_admission_limits_rps": [],
+        "compatible_recovery_canary_pass_windows": 2
+      }
+    }
+  ]
+}

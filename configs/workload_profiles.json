@@ -1,0 +1,33 @@
+{
+  "description": "Synthetic workload classes for workload-conditioned tuning",
+  "slo_policy": {
+    "note": "Experimental latency budgets scale with prompt and generation work; they are not production SLAs.",
+    "decode_budget_ms_per_output_token": 4.6875
+  },
+  "profiles": [
+    {
+      "name": "balanced",
+      "input_tokens": 256,
+      "output_tokens": 64,
+      "ttft_slo_ms": 100,
+      "e2el_slo_ms": 400,
+      "status": "completed"
+    },
+    {
+      "name": "prefill_heavy_4x",
+      "input_tokens": 1024,
+      "output_tokens": 64,
+      "ttft_slo_ms": 180,
+      "e2el_slo_ms": 440,
+      "pilot_request_rates": [3, 4, 5]
+    },
+    {
+      "name": "decode_heavy_4x",
+      "input_tokens": 256,
+      "output_tokens": 256,
+      "ttft_slo_ms": 115,
+      "e2el_slo_ms": 1500,
+      "pilot_request_rates": [3, 6, 9, 12]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "description": "Experiment 012: same seed82 trace, legacy first.",
+  "seed": 82,
+  "metric_window_seconds": 30,
+  "phases": [
+    {
+      "name": "balanced_before",
+      "duration_s": 60,
+      "request_rate": 16,
+      "long_fraction": 0
+    },
+    {
+      "name": "mixed_shift",
+      "duration_s": 150,
+      "request_rate": 6,
+      "long_fraction": 0.2
+    },
+    {
+      "name": "balanced_return",
+      "duration_s": 120,
+      "request_rate": 16,
+      "long_fraction": 0
+    }
+  ],
+  "modes": [
+    {
+      "name": "legacy_symmetric",
+      "adaptive": true,
+      "initial_policy": "balanced:mbt2048-seq256",
+      "controller_overrides": {
+        "compatible_recovery_confirmation_windows": 3,
+        "compatible_recovery_switch_margin": 0.08
+      }
+    },
+    {
+      "name": "asymmetric_controller",
+      "adaptive": true,
+      "initial_policy": "balanced:mbt2048-seq256"
+    }
+  ]
+}

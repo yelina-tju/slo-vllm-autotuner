@@ -1,0 +1,386 @@
+{
+  "schema_version": 1,
+  "seeds": [
+    {
+      "seed": 86,
+      "trace_sha256": "b63dc5688de69ab88228f28053602928c53b47c406078c516391f06695dc6e3d",
+      "order": [
+        "binary_recovery",
+        "canary_recovery"
+      ],
+      "modes": {
+        "binary_recovery": {
+          "goodput_rps": 9.36492343673875,
+          "compliant": 3093,
+          "statuses": {
+            "200": 3109,
+            "503": 271,
+            "429": 396
+          },
+          "restart_count": 1,
+          "tail_violation_area_s": 6.250134735368173,
+          "balanced_return": {
+            "goodput_rps": 13.55,
+            "compliant": 1626,
+            "statuses": {
+              "429": 307,
+              "200": 1626,
+              "503": 3
+            },
+            "first_recovery_delay_s": 22.454770009964705,
+            "full_capacity_delay_s": 22.454770009964705,
+            "transitions": [
+              {
+                "timestamp_s": 25313955.07761334,
+                "action": "switch",
+                "status": "applied",
+                "from_policy": "mixed_80_20:selected:mbt1024_fcfs",
+                "target_policy": "balanced:mbt1024-seq256",
+                "active_policy": "balanced:mbt1024-seq256",
+                "drained": true,
+                "admission_resumed": true,
+                "detail": "admission policy updated without a server restart",
+                "steps": [
+                  "admission_paused",
+                  "in_flight_drained",
+                  "target_admission_resumed"
+                ],
+                "started_at_s": 25313955.077521954,
+                "completed_at_s": 25313955.28275656,
+                "duration_s": 0.2052346058189869,
+                "requires_server_restart": false,
+                "started_offset_s": 232.24953540414572,
+                "completed_offset_s": 232.4547700099647
+              }
+            ]
+          }
+        },
+        "canary_recovery": {
+          "goodput_rps": 8.938021610536556,
+          "compliant": 2952,
+          "statuses": {
+            "200": 2970,
+            "503": 257,
+            "429": 549
+          },
+          "restart_count": 1,
+          "tail_violation_area_s": 6.631259534507981,
+          "balanced_return": {
+            "goodput_rps": 12.35,
+            "compliant": 1482,
+            "statuses": {
+              "429": 446,
+              "200": 1482,
+              "503": 8
+            },
+            "first_recovery_delay_s": 20.41479716449976,
+            "full_capacity_delay_s": 60.946493938565254,
+            "transitions": [
+              {
+                "timestamp_s": 25314337.35141981,
+                "action": "switch",
+                "status": "applied",
+                "from_policy": "mixed_80_20:selected:mbt1024_fcfs",
+                "target_policy": "balanced:mbt1024-seq256:canary-8rps",
+                "active_policy": "balanced:mbt1024-seq256:canary-8rps",
+                "drained": true,
+                "admission_resumed": true,
+                "detail": "admission policy updated without a server restart",
+                "steps": [
+                  "admission_paused",
+                  "in_flight_drained",
+                  "target_admission_resumed"
+                ],
+                "started_at_s": 25314337.351340503,
+                "completed_at_s": 25314337.40635049,
+                "duration_s": 0.05500998720526695,
+                "requires_server_restart": false,
+                "started_offset_s": 230.3597871772945,
+                "completed_offset_s": 230.41479716449976
+              },
+              {
+                "timestamp_s": 25314357.410852153,
+                "action": "switch",
+                "status": "applied",
+                "from_policy": "balanced:mbt1024-seq256:canary-8rps",
+                "target_policy": "balanced:mbt1024-seq256:canary-16rps",
+                "active_policy": "balanced:mbt1024-seq256:canary-16rps",
+                "drained": true,
+                "admission_resumed": true,
+                "detail": "admission policy updated without a server restart",
+                "steps": [
+                  "admission_paused",
+                  "in_flight_drained",
+                  "target_admission_resumed"
+                ],
+                "started_at_s": 25314357.410783622,
+                "completed_at_s": 25314357.684843365,
+                "duration_s": 0.2740597426891327,
+                "requires_server_restart": false,
+                "started_offset_s": 250.41923029720783,
+                "completed_offset_s": 250.69329003989697
+              },
+              {
+                "timestamp_s": 25314377.69134823,
+                "action": "switch",
+                "status": "applied",
+                "from_policy": "balanced:mbt1024-seq256:canary-16rps",
+                "target_policy": "balanced:mbt1024-seq256",
+                "active_policy": "balanced:mbt1024-seq256",
+                "drained": true,
+                "admission_resumed": true,
+                "detail": "admission policy updated without a server restart",
+                "steps": [
+                  "admission_paused",
+                  "in_flight_drained",
+                  "target_admission_resumed"
+                ],
+                "started_at_s": 25314377.69126847,
+                "completed_at_s": 25314377.938047264,
+                "duration_s": 0.24677879363298416,
+                "requires_server_restart": false,
+                "started_offset_s": 270.69971514493227,
+                "completed_offset_s": 270.94649393856525
+              }
+            ]
+          }
+        }
+      },
+      "delta_canary_minus_binary": {
+        "goodput_rps": -0.42690182620219375,
+        "compliant": -141,
+        "http_429": 153,
+        "http_503": -14,
+        "restart_count": 0,
+        "return_goodput_rps": -1.200000000000001,
+        "first_recovery_delay_s": -2.039972845464945,
+        "full_capacity_delay_s": 38.49172392860055
+      }
+    },
+    {
+      "seed": 87,
+      "trace_sha256": "f7a830a285f64a0795b48b5e7c2e7f052afae7c1e5ab9166844cb46412f59bdd",
+      "order": [
+        "canary_recovery",
+        "binary_recovery"
+      ],
+      "modes": {
+        "binary_recovery": {
+          "goodput_rps": 9.605674154340191,
+          "compliant": 3171,
+          "statuses": {
+            "200": 3200,
+            "503": 298,
+            "429": 309
+          },
+          "restart_count": 1,
+          "tail_violation_area_s": 10.20122584775069,
+          "balanced_return": {
+            "goodput_rps": 13.45,
+            "compliant": 1614,
+            "statuses": {
+              "200": 1614,
+              "429": 277,
+              "503": 4
+            },
+            "first_recovery_delay_s": 22.29931090772152,
+            "full_capacity_delay_s": 22.29931090772152,
+            "transitions": [
+              {
+                "timestamp_s": 25315117.291808765,
+                "action": "switch",
+                "status": "applied",
+                "from_policy": "mixed_80_20:selected:mbt1024_fcfs",
+                "target_policy": "balanced:mbt1024-seq256",
+                "active_policy": "balanced:mbt1024-seq256",
+                "drained": true,
+                "admission_resumed": true,
+                "detail": "admission policy updated without a server restart",
+                "steps": [
+                  "admission_paused",
+                  "in_flight_drained",
+                  "target_admission_resumed"
+                ],
+                "started_at_s": 25315117.291726287,
+                "completed_at_s": 25315117.475105166,
+                "duration_s": 0.18337887898087502,
+                "requires_server_restart": false,
+                "started_offset_s": 232.11593202874064,
+                "completed_offset_s": 232.29931090772152
+              }
+            ]
+          }
+        },
+        "canary_recovery": {
+          "goodput_rps": 8.872606646413505,
+          "compliant": 2929,
+          "statuses": {
+            "200": 2956,
+            "503": 318,
+            "429": 533
+          },
+          "restart_count": 1,
+          "tail_violation_area_s": 7.3143235713243415,
+          "balanced_return": {
+            "goodput_rps": 11.491666666666667,
+            "compliant": 1379,
+            "statuses": {
+              "200": 1379,
+              "429": 510,
+              "503": 6
+            },
+            "first_recovery_delay_s": 25.363637145608664,
+            "full_capacity_delay_s": 65.65436043217778,
+            "transitions": [
+              {
+                "timestamp_s": 25314733.23647219,
+                "action": "switch",
+                "status": "applied",
+                "from_policy": "mixed_80_20:selected:mbt1024_fcfs",
+                "target_policy": "balanced:mbt1024-seq256:canary-8rps",
+                "active_policy": "balanced:mbt1024-seq256:canary-8rps",
+                "drained": true,
+                "admission_resumed": true,
+                "detail": "admission policy updated without a server restart",
+                "steps": [
+                  "admission_paused",
+                  "in_flight_drained",
+                  "target_admission_resumed"
+                ],
+                "started_at_s": 25314733.23638608,
+                "completed_at_s": 25314733.451164786,
+                "duration_s": 0.21477870643138885,
+                "requires_server_restart": false,
+                "started_offset_s": 235.14885843917727,
+                "completed_offset_s": 235.36363714560866
+              },
+              {
+                "timestamp_s": 25314753.45645105,
+                "action": "switch",
+                "status": "applied",
+                "from_policy": "balanced:mbt1024-seq256:canary-8rps",
+                "target_policy": "balanced:mbt1024-seq256:canary-16rps",
+                "active_policy": "balanced:mbt1024-seq256:canary-16rps",
+                "drained": true,
+                "admission_resumed": true,
+                "detail": "admission policy updated without a server restart",
+                "steps": [
+                  "admission_paused",
+                  "in_flight_drained",
+                  "target_admission_resumed"
+                ],
+                "started_at_s": 25314753.456358135,
+                "completed_at_s": 25314753.621006887,
+                "duration_s": 0.16464875265955925,
+                "requires_server_restart": false,
+                "started_offset_s": 255.36883049458265,
+                "completed_offset_s": 255.5334792472422
+              },
+              {
+                "timestamp_s": 25314773.627237745,
+                "action": "switch",
+                "status": "applied",
+                "from_policy": "balanced:mbt1024-seq256:canary-16rps",
+                "target_policy": "balanced:mbt1024-seq256",
+                "active_policy": "balanced:mbt1024-seq256",
+                "drained": true,
+                "admission_resumed": true,
+                "detail": "admission policy updated without a server restart",
+                "steps": [
+                  "admission_paused",
+                  "in_flight_drained",
+                  "target_admission_resumed"
+                ],
+                "started_at_s": 25314773.62716063,
+                "completed_at_s": 25314773.741888072,
+                "duration_s": 0.1147274412214756,
+                "requires_server_restart": false,
+                "started_offset_s": 275.5396329909563,
+                "completed_offset_s": 275.6543604321778
+              }
+            ]
+          }
+        }
+      },
+      "delta_canary_minus_binary": {
+        "goodput_rps": -0.7330675079266857,
+        "compliant": -242,
+        "http_429": 224,
+        "http_503": 20,
+        "restart_count": 0,
+        "return_goodput_rps": -1.9583333333333321,
+        "first_recovery_delay_s": 3.064326237887144,
+        "full_capacity_delay_s": 43.35504952445626
+      }
+    }
+  ],
+  "aggregate_delta_canary_minus_binary": {
+    "goodput_rps": {
+      "mean": -0.5799846670644397,
+      "values": [
+        -0.42690182620219375,
+        -0.7330675079266857
+      ]
+    },
+    "compliant": {
+      "mean": -191.5,
+      "values": [
+        -141,
+        -242
+      ]
+    },
+    "http_429": {
+      "mean": 188.5,
+      "values": [
+        153,
+        224
+      ]
+    },
+    "http_503": {
+      "mean": 3,
+      "values": [
+        -14,
+        20
+      ]
+    },
+    "restart_count": {
+      "mean": 0,
+      "values": [
+        0,
+        0
+      ]
+    },
+    "return_goodput_rps": {
+      "mean": -1.5791666666666666,
+      "values": [
+        -1.200000000000001,
+        -1.9583333333333321
+      ]
+    },
+    "first_recovery_delay_s": {
+      "mean": 0.5121766962110996,
+      "values": [
+        -2.039972845464945,
+        3.064326237887144
+      ]
+    },
+    "full_capacity_delay_s": {
+      "mean": 40.923386726528406,
+      "values": [
+        38.49172392860055,
+        43.35504952445626
+      ]
+    }
+  },
+  "fault_injection": {
+    "canary": 16,
+    "binary": 48,
+    "absolute": 32,
+    "relative": 0.6666666666666667
+  },
+  "limitations": [
+    "Two paired seeds with alternating order are a trade-off pilot, not a population estimate.",
+    "The slow-backend exposure result is controlled fault injection, not a GPU failure probability.",
+    "Full-capacity delay includes SLO evidence collection and admission-only transaction time."
+  ]
+}

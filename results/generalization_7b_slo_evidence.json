@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "method": {
+    "ttft_slo": "3.0 * max_seed(p99_ttft_ms)",
+    "e2el_slo": "1.4 * max_seed(p99_e2el_ms)",
+    "ttft_factor": 3.0,
+    "e2el_factor": 1.4,
+    "request_rate_rps": 1.0
+  },
+  "model": "qwen2.5-7b",
+  "seeds": [
+    101,
+    102,
+    103
+  ],
+  "source_files": [
+    {
+      "path": "/root/autodl-tmp/slo-vllm-autotuner/results/generalization_7b_low_load/seed101.json",
+      "sha256": "22f2271e961833e542e550dba53133779d7e504ffe0ccdff0e4bda6524ff3586"
+    },
+    {
+      "path": "/root/autodl-tmp/slo-vllm-autotuner/results/generalization_7b_low_load/seed102.json",
+      "sha256": "d1a1e7dd78483da10a205e4297634e2c35aa14b07865eff8f7c3e4da873e121d"
+    },
+    {
+      "path": "/root/autodl-tmp/slo-vllm-autotuner/results/generalization_7b_low_load/seed103.json",
+      "sha256": "a360558bc41c89358ca37141f9f8ecbf4b40f808299eba5e6e8a15db7f7cfd05"
+    }
+  ],
+  "classes": {
+    "interactive_short": {
+      "observations": [
+        {
+          "seed": 101,
+          "p99_ttft_ms": 228.41055080294583,
+          "p99_e2el_ms": 1497.2159357741475
+        },
+        {
+          "seed": 102,
+          "p99_ttft_ms": 243.50261874496928,
+          "p99_e2el_ms": 1719.3880016356704
+        },
+        {
+          "seed": 103,
+          "p99_ttft_ms": 237.06532504409518,
+          "p99_e2el_ms": 1521.1201588064432
+        }
+      ],
+      "max_p99_ttft_ms": 243.50261874496928,
+      "max_p99_e2el_ms": 1719.3880016356704,
+      "ttft_slo_ms": 730.5078562349079,
+      "e2el_slo_ms": 2407.1432022899385
+    },
+    "document_long": {
+      "observations": [
+        {
+          "seed": 101,
+          "p99_ttft_ms": 330.88122542947497,
+          "p99_e2el_ms": 1752.1174719557162
+        },
+        {
+          "seed": 102,
+          "p99_ttft_ms": 377.63417854905094,
+          "p99_e2el_ms": 1909.4463511183856
+        },
+        {
+          "seed": 103,
+          "p99_ttft_ms": 546.3122520968318,
+          "p99_e2el_ms": 1696.0686486214397
+        }
+      ],
+      "max_p99_ttft_ms": 546.3122520968318,
+      "max_p99_e2el_ms": 1909.4463511183856,
+      "ttft_slo_ms": 1638.9367562904954,
+      "e2el_slo_ms": 2673.2248915657397
+    }
+  }
+}

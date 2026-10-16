@@ -1,0 +1,436 @@
+{
+  "schema_version": 1,
+  "measured_restart_cost_s": 45.058845683932304,
+  "scenarios": {
+    "transient_false_positive": {
+      "full": {
+        "actions": [
+          "hold",
+          "hold"
+        ],
+        "transitions": [],
+        "restart_count": 0,
+        "final_policy": "balanced:mbt2048-seq256",
+        "restart_downtime_proxy_s": 0.0
+      },
+      "without_confirmation": {
+        "actions": [
+          "switch",
+          "switch"
+        ],
+        "transitions": [
+          {
+            "timestamp_s": 10,
+            "action": "switch",
+            "from_policy": "balanced:mbt2048-seq256",
+            "to_policy": "mixed_80_20:selected:mbt1024_fcfs",
+            "active_profile": "mixed_80_20",
+            "reason": "confirmed workload profile mixed_80_20",
+            "pending_profile": null,
+            "pending_count": 0,
+            "cooldown_until_s": 130.0,
+            "admission_limit_rps": 3.0,
+            "server_environment": {
+              "MAX_NUM_BATCHED_TOKENS": "1024",
+              "MAX_NUM_SEQS": "256",
+              "SCHEDULING_POLICY": "fcfs"
+            },
+            "requires_server_restart": true,
+            "detector": {
+              "timestamp_s": 10,
+              "sample_count": 100,
+              "estimated_rps": 10,
+              "distribution": {},
+              "profile_distances": {
+                "balanced": 1.0,
+                "mixed_80_20": 0.0,
+                "prefill_heavy_4x": 1.0,
+                "decode_heavy_4x": 1.0
+              },
+              "best_profile": "mixed_80_20",
+              "best_distance": 0.0,
+              "status": "ready"
+            }
+          },
+          {
+            "timestamp_s": 20,
+            "action": "switch",
+            "from_policy": "mixed_80_20:selected:mbt1024_fcfs",
+            "to_policy": "balanced:mbt1024-seq256",
+            "active_profile": "balanced",
+            "reason": "confirmed workload profile balanced",
+            "pending_profile": null,
+            "pending_count": 0,
+            "cooldown_until_s": 130.0,
+            "admission_limit_rps": 24.0,
+            "server_environment": {
+              "MAX_NUM_BATCHED_TOKENS": "1024",
+              "MAX_NUM_SEQS": "256",
+              "SCHEDULING_POLICY": "fcfs"
+            },
+            "requires_server_restart": false,
+            "detector": {
+              "timestamp_s": 20,
+              "sample_count": 100,
+              "estimated_rps": 10,
+              "distribution": {},
+              "profile_distances": {
+                "balanced": 0.0,
+                "mixed_80_20": 1.0,
+                "prefill_heavy_4x": 1.0,
+                "decode_heavy_4x": 1.0
+              },
+              "best_profile": "balanced",
+              "best_distance": 0.0,
+              "status": "ready"
+            }
+          }
+        ],
+        "restart_count": 1,
+        "final_policy": "balanced:mbt1024-seq256",
+        "restart_downtime_proxy_s": 45.058845683932304
+      },
+      "interpretation": "confirmation avoids a restart on a one-window false signal"
+    },
+    "weak_distance_advantage": {
+      "full": {
+        "actions": [
+          "hold",
+          "hold",
+          "hold"
+        ],
+        "transitions": [],
+        "restart_count": 0,
+        "final_policy": "balanced:mbt2048-seq256",
+        "restart_downtime_proxy_s": 0.0
+      },
+      "without_distance_hysteresis": {
+        "actions": [
+          "hold",
+          "hold",
+          "switch"
+        ],
+        "transitions": [
+          {
+            "timestamp_s": 30,
+            "action": "switch",
+            "from_policy": "balanced:mbt2048-seq256",
+            "to_policy": "mixed_80_20:selected:mbt1024_fcfs",
+            "active_profile": "mixed_80_20",
+            "reason": "confirmed workload profile mixed_80_20",
+            "pending_profile": null,
+            "pending_count": 0,
+            "cooldown_until_s": 150.0,
+            "admission_limit_rps": 3.0,
+            "server_environment": {
+              "MAX_NUM_BATCHED_TOKENS": "1024",
+              "MAX_NUM_SEQS": "256",
+              "SCHEDULING_POLICY": "fcfs"
+            },
+            "requires_server_restart": true,
+            "detector": {
+              "timestamp_s": 30,
+              "sample_count": 100,
+              "estimated_rps": 10,
+              "distribution": {},
+              "profile_distances": {
+                "balanced": 0.1,
+                "mixed_80_20": 0.09,
+                "prefill_heavy_4x": 1.0,
+                "decode_heavy_4x": 1.0
+              },
+              "best_profile": "mixed_80_20",
+              "best_distance": 0.09,
+              "status": "ready"
+            }
+          }
+        ],
+        "restart_count": 1,
+        "final_policy": "mixed_80_20:selected:mbt1024_fcfs",
+        "restart_downtime_proxy_s": 45.058845683932304
+      },
+      "interpretation": "distance margin avoids switching on a persistent but tiny advantage"
+    },
+    "rapid_incompatible_reversal": {
+      "full": {
+        "actions": [
+          "switch",
+          "hold",
+          "hold",
+          "hold"
+        ],
+        "transitions": [
+          {
+            "timestamp_s": 10,
+            "action": "switch",
+            "from_policy": "balanced:mbt2048-seq256",
+            "to_policy": "mixed_80_20:selected:mbt1024_fcfs",
+            "active_profile": "mixed_80_20",
+            "reason": "confirmed workload profile mixed_80_20",
+            "pending_profile": null,
+            "pending_count": 0,
+            "cooldown_until_s": 130.0,
+            "admission_limit_rps": 3.0,
+            "server_environment": {
+              "MAX_NUM_BATCHED_TOKENS": "1024",
+              "MAX_NUM_SEQS": "256",
+              "SCHEDULING_POLICY": "fcfs"
+            },
+            "requires_server_restart": true,
+            "detector": {
+              "timestamp_s": 10,
+              "sample_count": 100,
+              "estimated_rps": 10,
+              "distribution": {},
+              "profile_distances": {
+                "balanced": 1.0,
+                "mixed_80_20": 0.0,
+                "prefill_heavy_4x": 1.0,
+                "decode_heavy_4x": 1.0
+              },
+              "best_profile": "mixed_80_20",
+              "best_distance": 0.0,
+              "status": "ready"
+            }
+          }
+        ],
+        "restart_count": 1,
+        "final_policy": "mixed_80_20:selected:mbt1024_fcfs",
+        "restart_downtime_proxy_s": 45.058845683932304
+      },
+      "without_cooldown": {
+        "actions": [
+          "switch",
+          "switch",
+          "hold",
+          "switch"
+        ],
+        "transitions": [
+          {
+            "timestamp_s": 10,
+            "action": "switch",
+            "from_policy": "balanced:mbt2048-seq256",
+            "to_policy": "mixed_80_20:selected:mbt1024_fcfs",
+            "active_profile": "mixed_80_20",
+            "reason": "confirmed workload profile mixed_80_20",
+            "pending_profile": null,
+            "pending_count": 0,
+            "cooldown_until_s": 10.0,
+            "admission_limit_rps": 3.0,
+            "server_environment": {
+              "MAX_NUM_BATCHED_TOKENS": "1024",
+              "MAX_NUM_SEQS": "256",
+              "SCHEDULING_POLICY": "fcfs"
+            },
+            "requires_server_restart": true,
+            "detector": {
+              "timestamp_s": 10,
+              "sample_count": 100,
+              "estimated_rps": 10,
+              "distribution": {},
+              "profile_distances": {
+                "balanced": 1.0,
+                "mixed_80_20": 0.0,
+                "prefill_heavy_4x": 1.0,
+                "decode_heavy_4x": 1.0
+              },
+              "best_profile": "mixed_80_20",
+              "best_distance": 0.0,
+              "status": "ready"
+            }
+          },
+          {
+            "timestamp_s": 20,
+            "action": "switch",
+            "from_policy": "mixed_80_20:selected:mbt1024_fcfs",
+            "to_policy": "decode_heavy_4x:mbt2048-seq256",
+            "active_profile": "decode_heavy_4x",
+            "reason": "confirmed workload profile decode_heavy_4x",
+            "pending_profile": null,
+            "pending_count": 0,
+            "cooldown_until_s": 20.0,
+            "admission_limit_rps": 18.0,
+            "server_environment": {
+              "MAX_NUM_BATCHED_TOKENS": "2048",
+              "MAX_NUM_SEQS": "256",
+              "SCHEDULING_POLICY": "fcfs"
+            },
+            "requires_server_restart": true,
+            "detector": {
+              "timestamp_s": 20,
+              "sample_count": 100,
+              "estimated_rps": 10,
+              "distribution": {},
+              "profile_distances": {
+                "balanced": 1.0,
+                "mixed_80_20": 1.0,
+                "prefill_heavy_4x": 1.0,
+                "decode_heavy_4x": 0.0
+              },
+              "best_profile": "decode_heavy_4x",
+              "best_distance": 0.0,
+              "status": "ready"
+            }
+          },
+          {
+            "timestamp_s": 40,
+            "action": "switch",
+            "from_policy": "decode_heavy_4x:mbt2048-seq256",
+            "to_policy": "mixed_80_20:selected:mbt1024_fcfs",
+            "active_profile": "mixed_80_20",
+            "reason": "confirmed workload profile mixed_80_20",
+            "pending_profile": null,
+            "pending_count": 0,
+            "cooldown_until_s": 40.0,
+            "admission_limit_rps": 3.0,
+            "server_environment": {
+              "MAX_NUM_BATCHED_TOKENS": "1024",
+              "MAX_NUM_SEQS": "256",
+              "SCHEDULING_POLICY": "fcfs"
+            },
+            "requires_server_restart": true,
+            "detector": {
+              "timestamp_s": 40,
+              "sample_count": 100,
+              "estimated_rps": 10,
+              "distribution": {},
+              "profile_distances": {
+                "balanced": 1.0,
+                "mixed_80_20": 0.0,
+                "prefill_heavy_4x": 1.0,
+                "decode_heavy_4x": 1.0
+              },
+              "best_profile": "mixed_80_20",
+              "best_distance": 0.0,
+              "status": "ready"
+            }
+          }
+        ],
+        "restart_count": 3,
+        "final_policy": "mixed_80_20:selected:mbt1024_fcfs",
+        "restart_downtime_proxy_s": 135.1765370517969
+      },
+      "interpretation": "cooldown blocks repeated model-reload transitions"
+    },
+    "persistent_fresh_slo_violations": {
+      "full": {
+        "actions": [
+          "hold",
+          "rollback"
+        ],
+        "transitions": [
+          {
+            "timestamp_s": 20,
+            "action": "rollback",
+            "from_policy": "mixed_80_20:selected:mbt1024_fcfs",
+            "to_policy": "mixed_80_20:rollback:mbt2048_fcfs",
+            "active_profile": "mixed_80_20",
+            "reason": "confirmed SLO violation: interactive_short: P99 E2E 430.00 > 400.00 ms",
+            "pending_profile": null,
+            "pending_count": 0,
+            "cooldown_until_s": 320.0,
+            "admission_limit_rps": 3.0,
+            "server_environment": {
+              "MAX_NUM_BATCHED_TOKENS": "2048",
+              "MAX_NUM_SEQS": "256",
+              "SCHEDULING_POLICY": "fcfs"
+            },
+            "requires_server_restart": true,
+            "detector": null
+          }
+        ],
+        "restart_count": 1,
+        "final_policy": "mixed_80_20:rollback:mbt2048_fcfs",
+        "restart_downtime_proxy_s": 45.058845683932304
+      },
+      "without_rollback": {
+        "actions": [
+          "hold",
+          "hold"
+        ],
+        "transitions": [],
+        "restart_count": 0,
+        "final_policy": "mixed_80_20:selected:mbt1024_fcfs",
+        "restart_downtime_proxy_s": 0.0
+      },
+      "interpretation": "without rollback, the controller leaves a persistently violating primary after two fresh windows"
+    },
+    "compatible_high_capacity_recovery": {
+      "asymmetric": {
+        "actions": [
+          "switch"
+        ],
+        "transitions": [
+          {
+            "timestamp_s": 10,
+            "action": "switch",
+            "from_policy": "mixed_80_20:selected:mbt1024_fcfs",
+            "to_policy": "balanced:mbt1024-seq256",
+            "active_profile": "balanced",
+            "reason": "confirmed workload profile balanced",
+            "pending_profile": null,
+            "pending_count": 0,
+            "cooldown_until_s": 300,
+            "admission_limit_rps": 24.0,
+            "server_environment": {
+              "MAX_NUM_BATCHED_TOKENS": "1024",
+              "MAX_NUM_SEQS": "256",
+              "SCHEDULING_POLICY": "fcfs"
+            },
+            "requires_server_restart": false,
+            "detector": {
+              "timestamp_s": 10,
+              "sample_count": 100,
+              "estimated_rps": 10,
+              "distribution": {},
+              "profile_distances": {
+                "balanced": 0.09,
+                "mixed_80_20": 0.1,
+                "prefill_heavy_4x": 1.0,
+                "decode_heavy_4x": 1.0
+              },
+              "best_profile": "balanced",
+              "best_distance": 0.09,
+              "status": "ready"
+            }
+          }
+        ],
+        "restart_count": 0,
+        "final_policy": "balanced:mbt1024-seq256",
+        "restart_downtime_proxy_s": 0.0
+      },
+      "legacy_symmetric": {
+        "actions": [
+          "hold"
+        ],
+        "transitions": [],
+        "restart_count": 0,
+        "final_policy": "mixed_80_20:selected:mbt1024_fcfs",
+        "restart_downtime_proxy_s": 0.0
+      },
+      "interpretation": "asymmetric recovery changes admission without a model restart"
+    }
+  },
+  "expected_restart_pairs": {
+    "transient_false_positive": [
+      0,
+      1
+    ],
+    "weak_distance_advantage": [
+      0,
+      1
+    ],
+    "rapid_incompatible_reversal": [
+      1,
+      3
+    ],
+    "persistent_fresh_slo_violations": [
+      1,
+      0
+    ],
+    "compatible_high_capacity_recovery": [
+      0,
+      0
+    ]
+  }
+}

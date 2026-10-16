@@ -1,0 +1,67 @@
+{
+  "rolling_window_seconds": 60,
+  "minimum_samples": 30,
+  "minimum_evaluation_interval_seconds": 10,
+  "switch_confirmation_windows": 3,
+  "switch_margin": 0.08,
+  "compatible_recovery_confirmation_windows": 1,
+  "compatible_recovery_switch_margin": 0.0,
+  "compatible_recovery_rollback_enabled": true,
+  "compatible_recovery_canary_admission_limits_rps": [
+    6.0,
+    9.0
+  ],
+  "compatible_recovery_canary_pass_windows": 2,
+  "max_profile_distance": 0.2,
+  "cooldown_seconds": 120,
+  "rollback_confirmation_windows": 2,
+  "rollback_cooldown_seconds": 300,
+  "minimum_slo_samples_per_class": 5,
+  "default_profile": "balanced",
+  "mixed_profile_name": "mixed_80_20",
+  "default_max_num_seqs": 256,
+  "shape_prototypes": {
+    "balanced": {
+      "input_tokens": 256,
+      "output_tokens": 64
+    },
+    "prefill_heavy": {
+      "input_tokens": 1024,
+      "output_tokens": 64
+    },
+    "decode_heavy": {
+      "input_tokens": 256,
+      "output_tokens": 256
+    }
+  },
+  "profile_distributions": {
+    "balanced": {
+      "balanced": 1.0
+    },
+    "prefill_heavy_4x": {
+      "prefill_heavy": 1.0
+    },
+    "decode_heavy_4x": {
+      "decode_heavy": 1.0
+    },
+    "mixed_80_20": {
+      "balanced": 0.8,
+      "prefill_heavy": 0.2
+    }
+  },
+  "slo_class_mapping": {
+    "balanced": {
+      "balanced": "balanced"
+    },
+    "prefill_heavy_4x": {
+      "prefill_heavy": "prefill_heavy_4x"
+    },
+    "decode_heavy_4x": {
+      "decode_heavy": "decode_heavy_4x"
+    },
+    "mixed_80_20": {
+      "balanced": "interactive_short",
+      "prefill_heavy": "document_long"
+    }
+  }
+}

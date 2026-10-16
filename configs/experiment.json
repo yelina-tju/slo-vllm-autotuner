@@ -1,0 +1,47 @@
+{
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "served_model_name": "qwen2.5-1.5b",
+  "server": {
+    "dtype": "float16",
+    "max_model_len": 4096,
+    "gpu_memory_utilization": 0.75,
+    "enable_prefix_caching": false
+  },
+  "workload": {
+    "num_prompts": 64,
+    "input_tokens": 256,
+    "output_tokens": 64,
+    "concurrency": [1, 4, 8, 16, 32]
+  },
+  "open_loop_pilot": {
+    "num_prompts": 100,
+    "request_rates": [5, 20, 50],
+    "burstiness": 1.0,
+    "input_tokens": 256,
+    "output_tokens": 64,
+    "status": "diagnostic_only_prefix_cache_contaminated"
+  },
+  "open_loop_baseline": {
+    "num_prompts": 1000,
+    "num_warmups": 64,
+    "request_rates": [20, 30, 40, 50],
+    "seeds_by_request_rate": {"20": 14, "30": 11, "40": 12, "50": 13},
+    "burstiness": 1.0,
+    "input_tokens": 256,
+    "output_tokens": 64,
+    "max_concurrency": null,
+    "enable_prefix_caching": false
+  },
+  "slo": {
+    "p99_ttft_ms": 100.0,
+    "p99_e2el_ms": 400.0
+  },
+  "scheduler_search": {
+    "offered_rps": 25,
+    "seeds": [21, 22, 23],
+    "max_num_batched_tokens": [1024, 2048, 4096],
+    "max_num_seqs": 256,
+    "enable_chunked_prefill": true,
+    "enable_prefix_caching": false
+  }
+}

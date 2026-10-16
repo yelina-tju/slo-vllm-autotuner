@@ -1,0 +1,796 @@
+{
+  "order_control": {
+    "trace_sha256": "761645fbf11fba3059b199c359c05138802ae61cad484b8499760d954ec0be30",
+    "order": [
+      "legacy_symmetric",
+      "asymmetric_controller"
+    ],
+    "modes": {
+      "asymmetric_controller": {
+        "goodput_rps": 9.429024648725836,
+        "compliant": 3114,
+        "statuses": {
+          "200": 3145,
+          "503": 232,
+          "429": 404
+        },
+        "restart_count": 1,
+        "phases": [
+          {
+            "name": "balanced_before",
+            "start_s": 0.0,
+            "end_s": 60.0,
+            "goodput_rps": 16.35,
+            "compliant": 981,
+            "statuses": {
+              "200": 981
+            },
+            "recovery_delay_s": null,
+            "transitions": []
+          },
+          {
+            "name": "mixed_shift",
+            "start_s": 60.0,
+            "end_s": 210.0,
+            "goodput_rps": 3.48,
+            "compliant": 522,
+            "statuses": {
+              "200": 553,
+              "503": 230,
+              "429": 112
+            },
+            "recovery_delay_s": 112.99813056364655,
+            "transitions": [
+              {
+                "timestamp_s": 25254009.11580912,
+                "action": "switch",
+                "status": "applied",
+                "from_policy": "balanced:mbt2048-seq256",
+                "target_policy": "mixed_80_20:selected:mbt1024_fcfs",
+                "active_policy": "mixed_80_20:selected:mbt1024_fcfs",
+                "drained": true,
+                "admission_resumed": true,
+                "detail": "server=starting pid=3952 log=/root/autodl-tmp/slo-vllm-autotuner/logs/server_mixed_80_20_selected_mbt1024_fcfs.log; health check passed; performance warm-up passed: 8 requests in 2.53s",
+                "steps": [
+                  "admission_paused",
+                  "in_flight_drained",
+                  "source_stopped",
+                  "target_start_command_succeeded",
+                  "target_health_passed",
+                  "target_warmup_passed",
+                  "target_admission_resumed"
+                ],
+                "started_at_s": 25254009.11571528,
+                "completed_at_s": 25254046.912366465,
+                "duration_s": 37.79665118455887,
+                "requires_server_restart": true,
+                "started_offset_s": 135.2014793790877,
+                "completed_offset_s": 172.99813056364655
+              }
+            ]
+          },
+          {
+            "name": "balanced_return",
+            "start_s": 210.0,
+            "end_s": 330.0,
+            "goodput_rps": 13.425,
+            "compliant": 1611,
+            "statuses": {
+              "200": 1611,
+              "429": 292,
+              "503": 2
+            },
+            "recovery_delay_s": 23.062813960015774,
+            "transitions": [
+              {
+                "timestamp_s": 25254106.92649409,
+                "action": "switch",
+                "status": "applied",
+                "from_policy": "mixed_80_20:selected:mbt1024_fcfs",
+                "target_policy": "balanced:mbt1024-seq256",
+                "active_policy": "balanced:mbt1024-seq256",
+                "drained": true,
+                "admission_resumed": true,
+                "detail": "admission policy updated without a server restart",
+                "steps": [
+                  "admission_paused",
+                  "in_flight_drained",
+                  "target_admission_resumed"
+                ],
+                "started_at_s": 25254106.92640791,
+                "completed_at_s": 25254106.97704986,
+                "duration_s": 0.050641950219869614,
+                "requires_server_restart": false,
+                "started_offset_s": 233.0121720097959,
+                "completed_offset_s": 233.06281396001577
+              }
+            ]
+          }
+        ]
+      },
+      "legacy_symmetric": {
+        "goodput_rps": 7.960450216450443,
+        "compliant": 2629,
+        "statuses": {
+          "200": 2659,
+          "503": 267,
+          "429": 855
+        },
+        "restart_count": 1,
+        "phases": [
+          {
+            "name": "balanced_before",
+            "start_s": 0.0,
+            "end_s": 60.0,
+            "goodput_rps": 16.35,
+            "compliant": 981,
+            "statuses": {
+              "200": 981
+            },
+            "recovery_delay_s": null,
+            "transitions": []
+          },
+          {
+            "name": "mixed_shift",
+            "start_s": 60.0,
+            "end_s": 210.0,
+            "goodput_rps": 3.3533333333333335,
+            "compliant": 503,
+            "statuses": {
+              "200": 533,
+              "503": 267,
+              "429": 95
+            },
+            "recovery_delay_s": 119.04372551292181,
+            "transitions": [
+              {
+                "timestamp_s": 25253628.92586932,
+                "action": "switch",
+                "status": "applied",
+                "from_policy": "balanced:mbt2048-seq256",
+                "target_policy": "mixed_80_20:selected:mbt1024_fcfs",
+                "active_policy": "mixed_80_20:selected:mbt1024_fcfs",
+                "drained": true,
+                "admission_resumed": true,
+                "detail": "server=starting pid=2304 log=/root/autodl-tmp/slo-vllm-autotuner/logs/server_mixed_80_20_selected_mbt1024_fcfs.log; health check passed; performance warm-up passed: 8 requests in 2.50s",
+                "steps": [
+                  "admission_paused",
+                  "in_flight_drained",
+                  "source_stopped",
+                  "target_start_command_succeeded",
+                  "target_health_passed",
+                  "target_warmup_passed",
+                  "target_admission_resumed"
+                ],
+                "started_at_s": 25253628.92575875,
+                "completed_at_s": 25253672.710252214,
+                "duration_s": 43.78449346497655,
+                "requires_server_restart": true,
+                "started_offset_s": 135.25923204794526,
+                "completed_offset_s": 179.0437255129218
+              }
+            ]
+          },
+          {
+            "name": "balanced_return",
+            "start_s": 210.0,
+            "end_s": 330.0,
+            "goodput_rps": 9.541666666666666,
+            "compliant": 1145,
+            "statuses": {
+              "200": 1145,
+              "429": 760
+            },
+            "recovery_delay_s": 59.06621536239982,
+            "transitions": [
+              {
+                "timestamp_s": 25253762.732534807,
+                "action": "switch",
+                "status": "applied",
+                "from_policy": "mixed_80_20:selected:mbt1024_fcfs",
+                "target_policy": "balanced:mbt1024-seq256",
+                "active_policy": "balanced:mbt1024-seq256",
+                "drained": true,
+                "admission_resumed": true,
+                "detail": "admission policy updated without a server restart",
+                "steps": [
+                  "admission_paused",
+                  "in_flight_drained",
+                  "target_admission_resumed"
+                ],
+                "started_at_s": 25253762.73243013,
+                "completed_at_s": 25253762.732742064,
+                "duration_s": 0.0003119334578514099,
+                "requires_server_restart": false,
+                "started_offset_s": 269.06590342894197,
+                "completed_offset_s": 269.0662153623998
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "goodput_delta_rps": 1.4685744322753926
+  },
+  "original_seed82": {
+    "trace_sha256": "761645fbf11fba3059b199c359c05138802ae61cad484b8499760d954ec0be30",
+    "order": [
+      "asymmetric_controller",
+      "legacy_symmetric"
+    ],
+    "modes": {
+      "asymmetric_controller": {
+        "goodput_rps": 9.144392214581666,
+        "compliant": 3020,
+        "statuses": {
+          "200": 3051,
+          "503": 270,
+          "429": 460
+        },
+        "restart_count": 1,
+        "phases": [
+          {
+            "name": "balanced_before",
+            "start_s": 0.0,
+            "end_s": 60.0,
+            "goodput_rps": 16.35,
+            "compliant": 981,
+            "statuses": {
+              "200": 981
+            },
+            "recovery_delay_s": null,
+            "transitions": []
+          },
+          {
+            "name": "mixed_shift",
+            "start_s": 60.0,
+            "end_s": 210.0,
+            "goodput_rps": 3.3466666666666667,
+            "compliant": 502,
+            "statuses": {
+              "200": 533,
+              "503": 267,
+              "429": 95
+            },
+            "recovery_delay_s": 119.04599738121033,
+            "transitions": [
+              {
+                "timestamp_s": 25233517.49978385,
+                "action": "switch",
+                "status": "applied",
+                "from_policy": "balanced:mbt2048-seq256",
+                "target_policy": "mixed_80_20:selected:mbt1024_fcfs",
+                "active_policy": "mixed_80_20:selected:mbt1024_fcfs",
+                "drained": true,
+                "admission_resumed": true,
+                "detail": "server=starting pid=3174 log=/root/autodl-tmp/slo-vllm-autotuner/logs/server_mixed_80_20_selected_mbt1024_fcfs.log; health check passed; performance warm-up passed: 8 requests in 2.51s",
+                "steps": [
+                  "admission_paused",
+                  "in_flight_drained",
+                  "source_stopped",
+                  "target_start_command_succeeded",
+                  "target_health_passed",
+                  "target_warmup_passed",
+                  "target_admission_resumed"
+                ],
+                "started_at_s": 25233517.499683216,
+                "completed_at_s": 25233561.27326125,
+                "duration_s": 43.77357803285122,
+                "requires_server_restart": true,
+                "started_offset_s": 135.2724193483591,
+                "completed_offset_s": 179.04599738121033
+              }
+            ]
+          },
+          {
+            "name": "balanced_return",
+            "start_s": 210.0,
+            "end_s": 330.0,
+            "goodput_rps": 12.808333333333334,
+            "compliant": 1537,
+            "statuses": {
+              "200": 1537,
+              "429": 365,
+              "503": 3
+            },
+            "recovery_delay_s": 29.165731824934483,
+            "transitions": [
+              {
+                "timestamp_s": 25233621.285377216,
+                "action": "switch",
+                "status": "applied",
+                "from_policy": "mixed_80_20:selected:mbt1024_fcfs",
+                "target_policy": "balanced:mbt1024-seq256",
+                "active_policy": "balanced:mbt1024-seq256",
+                "drained": true,
+                "admission_resumed": true,
+                "detail": "admission policy updated without a server restart",
+                "steps": [
+                  "admission_paused",
+                  "in_flight_drained",
+                  "target_admission_resumed"
+                ],
+                "started_at_s": 25233621.285289302,
+                "completed_at_s": 25233621.392995693,
+                "duration_s": 0.10770639032125473,
+                "requires_server_restart": false,
+                "started_offset_s": 239.05802543461323,
+                "completed_offset_s": 239.16573182493448
+              }
+            ]
+          }
+        ]
+      },
+      "legacy_symmetric": {
+        "goodput_rps": 8.08445386438909,
+        "compliant": 2670,
+        "statuses": {
+          "200": 2698,
+          "503": 255,
+          "429": 828
+        },
+        "restart_count": 1,
+        "phases": [
+          {
+            "name": "balanced_before",
+            "start_s": 0.0,
+            "end_s": 60.0,
+            "goodput_rps": 16.35,
+            "compliant": 981,
+            "statuses": {
+              "200": 981
+            },
+            "recovery_delay_s": null,
+            "transitions": []
+          },
+          {
+            "name": "mixed_shift",
+            "start_s": 60.0,
+            "end_s": 210.0,
+            "goodput_rps": 3.42,
+            "compliant": 513,
+            "statuses": {
+              "200": 541,
+              "503": 254,
+              "429": 100
+            },
+            "recovery_delay_s": 116.94485372304916,
+            "transitions": [
+              {
+                "timestamp_s": 25233895.7670934,
+                "action": "switch",
+                "status": "applied",
+                "from_policy": "balanced:mbt2048-seq256",
+                "target_policy": "mixed_80_20:selected:mbt1024_fcfs",
+                "active_policy": "mixed_80_20:selected:mbt1024_fcfs",
+                "drained": true,
+                "admission_resumed": true,
+                "detail": "server=starting pid=4734 log=/root/autodl-tmp/slo-vllm-autotuner/logs/server_mixed_80_20_selected_mbt1024_fcfs.log; health check passed; performance warm-up passed: 8 requests in 2.50s",
+                "steps": [
+                  "admission_paused",
+                  "in_flight_drained",
+                  "source_stopped",
+                  "target_start_command_succeeded",
+                  "target_health_passed",
+                  "target_warmup_passed",
+                  "target_admission_resumed"
+                ],
+                "started_at_s": 25233895.76697816,
+                "completed_at_s": 25233937.468133777,
+                "duration_s": 41.70115561783314,
+                "requires_server_restart": true,
+                "started_offset_s": 135.24369810521603,
+                "completed_offset_s": 176.94485372304916
+              }
+            ]
+          },
+          {
+            "name": "balanced_return",
+            "start_s": 210.0,
+            "end_s": 330.0,
+            "goodput_rps": 9.8,
+            "compliant": 1176,
+            "statuses": {
+              "200": 1176,
+              "429": 728,
+              "503": 1
+            },
+            "recovery_delay_s": 57.05706551671028,
+            "transitions": [
+              {
+                "timestamp_s": 25234027.485253107,
+                "action": "switch",
+                "status": "applied",
+                "from_policy": "mixed_80_20:selected:mbt1024_fcfs",
+                "target_policy": "balanced:mbt1024-seq256",
+                "active_policy": "balanced:mbt1024-seq256",
+                "drained": true,
+                "admission_resumed": true,
+                "detail": "admission policy updated without a server restart",
+                "steps": [
+                  "admission_paused",
+                  "in_flight_drained",
+                  "target_admission_resumed"
+                ],
+                "started_at_s": 25234027.485171508,
+                "completed_at_s": 25234027.58034557,
+                "duration_s": 0.09517406299710274,
+                "requires_server_restart": false,
+                "started_offset_s": 266.9618914537132,
+                "completed_offset_s": 267.0570655167103
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "goodput_delta_rps": 1.059938350192576
+  },
+  "repeated_shift": {
+    "trace_sha256": "0a7940e3e631c835c8efa1a668a0065e270fe0dd64a5b0922ae496e1f0409b4d",
+    "order": [
+      "legacy_symmetric",
+      "asymmetric_controller"
+    ],
+    "modes": {
+      "asymmetric_controller": {
+        "goodput_rps": 9.482456140350877,
+        "compliant": 5405,
+        "statuses": {
+          "200": 5429,
+          "503": 243,
+          "429": 713
+        },
+        "restart_count": 1,
+        "phases": [
+          {
+            "name": "balanced_before",
+            "start_s": 0.0,
+            "end_s": 60.0,
+            "goodput_rps": 15.95,
+            "compliant": 957,
+            "statuses": {
+              "200": 957
+            },
+            "recovery_delay_s": null,
+            "transitions": []
+          },
+          {
+            "name": "mixed_shift",
+            "start_s": 60.0,
+            "end_s": 210.0,
+            "goodput_rps": 3.5533333333333332,
+            "compliant": 533,
+            "statuses": {
+              "200": 546,
+              "503": 236,
+              "429": 111
+            },
+            "recovery_delay_s": 119.22067897766829,
+            "transitions": [
+              {
+                "timestamp_s": 25255003.761302132,
+                "action": "switch",
+                "status": "applied",
+                "from_policy": "balanced:mbt2048-seq256",
+                "target_policy": "mixed_80_20:selected:mbt1024_fcfs",
+                "active_policy": "mixed_80_20:selected:mbt1024_fcfs",
+                "drained": true,
+                "admission_resumed": true,
+                "detail": "server=starting pid=7586 log=/root/autodl-tmp/slo-vllm-autotuner/logs/server_mixed_80_20_selected_mbt1024_fcfs.log; health check passed; performance warm-up passed: 8 requests in 2.50s",
+                "steps": [
+                  "admission_paused",
+                  "in_flight_drained",
+                  "source_stopped",
+                  "target_start_command_succeeded",
+                  "target_health_passed",
+                  "target_warmup_passed",
+                  "target_admission_resumed"
+                ],
+                "started_at_s": 25255003.761215527,
+                "completed_at_s": 25255047.722835682,
+                "duration_s": 43.9616201557219,
+                "requires_server_restart": true,
+                "started_offset_s": 135.25905882194638,
+                "completed_offset_s": 179.22067897766829
+              }
+            ]
+          },
+          {
+            "name": "balanced_return",
+            "start_s": 210.0,
+            "end_s": 330.0,
+            "goodput_rps": 13.583333333333334,
+            "compliant": 1630,
+            "statuses": {
+              "429": 246,
+              "200": 1630,
+              "503": 1
+            },
+            "recovery_delay_s": 19.45437929034233,
+            "transitions": [
+              {
+                "timestamp_s": 25255097.73250892,
+                "action": "switch",
+                "status": "applied",
+                "from_policy": "mixed_80_20:selected:mbt1024_fcfs",
+                "target_policy": "balanced:mbt1024-seq256",
+                "active_policy": "balanced:mbt1024-seq256",
+                "drained": true,
+                "admission_resumed": true,
+                "detail": "admission policy updated without a server restart",
+                "steps": [
+                  "admission_paused",
+                  "in_flight_drained",
+                  "target_admission_resumed"
+                ],
+                "started_at_s": 25255097.73242645,
+                "completed_at_s": 25255097.956535995,
+                "duration_s": 0.22410954535007477,
+                "requires_server_restart": false,
+                "started_offset_s": 229.23026974499226,
+                "completed_offset_s": 229.45437929034233
+              }
+            ]
+          },
+          {
+            "name": "mixed_again",
+            "start_s": 330.0,
+            "end_s": 450.0,
+            "goodput_rps": 4.925,
+            "compliant": 591,
+            "statuses": {
+              "200": 602,
+              "503": 3,
+              "429": 106
+            },
+            "recovery_delay_s": 79.77240960672498,
+            "transitions": [
+              {
+                "timestamp_s": 25255278.018731073,
+                "action": "switch",
+                "status": "applied",
+                "from_policy": "balanced:mbt1024-seq256",
+                "target_policy": "mixed_80_20:selected:mbt1024_fcfs",
+                "active_policy": "mixed_80_20:selected:mbt1024_fcfs",
+                "drained": true,
+                "admission_resumed": true,
+                "detail": "admission policy updated without a server restart",
+                "steps": [
+                  "admission_paused",
+                  "in_flight_drained",
+                  "target_admission_resumed"
+                ],
+                "started_at_s": 25255278.018650256,
+                "completed_at_s": 25255278.27456631,
+                "duration_s": 0.2559160552918911,
+                "requires_server_restart": false,
+                "started_offset_s": 409.5164935514331,
+                "completed_offset_s": 409.772409606725
+              }
+            ]
+          },
+          {
+            "name": "balanced_final",
+            "start_s": 450.0,
+            "end_s": 570.0,
+            "goodput_rps": 14.116666666666667,
+            "compliant": 1694,
+            "statuses": {
+              "200": 1694,
+              "429": 250,
+              "503": 3
+            },
+            "recovery_delay_s": 20.040415696799755,
+            "transitions": [
+              {
+                "timestamp_s": 25255338.285415288,
+                "action": "switch",
+                "status": "applied",
+                "from_policy": "mixed_80_20:selected:mbt1024_fcfs",
+                "target_policy": "balanced:mbt1024-seq256",
+                "active_policy": "balanced:mbt1024-seq256",
+                "drained": true,
+                "admission_resumed": true,
+                "detail": "admission policy updated without a server restart",
+                "steps": [
+                  "admission_paused",
+                  "in_flight_drained",
+                  "target_admission_resumed"
+                ],
+                "started_at_s": 25255338.285348427,
+                "completed_at_s": 25255338.5425724,
+                "duration_s": 0.2572239749133587,
+                "requires_server_restart": false,
+                "started_offset_s": 469.7831917218864,
+                "completed_offset_s": 470.04041569679976
+              }
+            ]
+          }
+        ]
+      },
+      "legacy_symmetric": {
+        "goodput_rps": 8.18421052631579,
+        "compliant": 4665,
+        "statuses": {
+          "200": 4693,
+          "503": 233,
+          "429": 1459
+        },
+        "restart_count": 1,
+        "phases": [
+          {
+            "name": "balanced_before",
+            "start_s": 0.0,
+            "end_s": 60.0,
+            "goodput_rps": 15.95,
+            "compliant": 957,
+            "statuses": {
+              "200": 957
+            },
+            "recovery_delay_s": null,
+            "transitions": []
+          },
+          {
+            "name": "mixed_shift",
+            "start_s": 60.0,
+            "end_s": 210.0,
+            "goodput_rps": 3.58,
+            "compliant": 537,
+            "statuses": {
+              "200": 551,
+              "503": 230,
+              "429": 112
+            },
+            "recovery_delay_s": 117.1738265901804,
+            "transitions": [
+              {
+                "timestamp_s": 25254393.48767399,
+                "action": "switch",
+                "status": "applied",
+                "from_policy": "balanced:mbt2048-seq256",
+                "target_policy": "mixed_80_20:selected:mbt1024_fcfs",
+                "active_policy": "mixed_80_20:selected:mbt1024_fcfs",
+                "drained": true,
+                "admission_resumed": true,
+                "detail": "server=starting pid=5673 log=/root/autodl-tmp/slo-vllm-autotuner/logs/server_mixed_80_20_selected_mbt1024_fcfs.log; health check passed; performance warm-up passed: 8 requests in 2.50s",
+                "steps": [
+                  "admission_paused",
+                  "in_flight_drained",
+                  "source_stopped",
+                  "target_start_command_succeeded",
+                  "target_health_passed",
+                  "target_warmup_passed",
+                  "target_admission_resumed"
+                ],
+                "started_at_s": 25254393.48757596,
+                "completed_at_s": 25254435.41461181,
+                "duration_s": 41.927035849541426,
+                "requires_server_restart": true,
+                "started_offset_s": 135.24679074063897,
+                "completed_offset_s": 177.1738265901804
+              }
+            ]
+          },
+          {
+            "name": "balanced_return",
+            "start_s": 210.0,
+            "end_s": 330.0,
+            "goodput_rps": 10.625,
+            "compliant": 1275,
+            "statuses": {
+              "200": 1275,
+              "429": 600,
+              "503": 2
+            },
+            "recovery_delay_s": 47.44909404963255,
+            "transitions": [
+              {
+                "timestamp_s": 25254515.433911774,
+                "action": "switch",
+                "status": "applied",
+                "from_policy": "mixed_80_20:selected:mbt1024_fcfs",
+                "target_policy": "balanced:mbt1024-seq256",
+                "active_policy": "balanced:mbt1024-seq256",
+                "drained": true,
+                "admission_resumed": true,
+                "detail": "admission policy updated without a server restart",
+                "steps": [
+                  "admission_paused",
+                  "in_flight_drained",
+                  "target_admission_resumed"
+                ],
+                "started_at_s": 25254515.43382872,
+                "completed_at_s": 25254515.68987927,
+                "duration_s": 0.25605054944753647,
+                "requires_server_restart": false,
+                "started_offset_s": 257.193043500185,
+                "completed_offset_s": 257.44909404963255
+              }
+            ]
+          },
+          {
+            "name": "mixed_again",
+            "start_s": 330.0,
+            "end_s": 450.0,
+            "goodput_rps": 4.808333333333334,
+            "compliant": 577,
+            "statuses": {
+              "200": 591,
+              "503": 1,
+              "429": 119
+            },
+            "recovery_delay_s": 77.77244401350617,
+            "transitions": [
+              {
+                "timestamp_s": 25254665.741056085,
+                "action": "switch",
+                "status": "applied",
+                "from_policy": "balanced:mbt1024-seq256",
+                "target_policy": "mixed_80_20:selected:mbt1024_fcfs",
+                "active_policy": "mixed_80_20:selected:mbt1024_fcfs",
+                "drained": true,
+                "admission_resumed": true,
+                "detail": "admission policy updated without a server restart",
+                "steps": [
+                  "admission_paused",
+                  "in_flight_drained",
+                  "target_admission_resumed"
+                ],
+                "started_at_s": 25254665.74096661,
+                "completed_at_s": 25254666.013229232,
+                "duration_s": 0.2722626216709614,
+                "requires_server_restart": false,
+                "started_offset_s": 407.5001813918352,
+                "completed_offset_s": 407.7724440135062
+              }
+            ]
+          },
+          {
+            "name": "balanced_final",
+            "start_s": 450.0,
+            "end_s": 570.0,
+            "goodput_rps": 10.991666666666667,
+            "compliant": 1319,
+            "statuses": {
+              "200": 1319,
+              "429": 628
+            },
+            "recovery_delay_s": 47.79177141189575,
+            "transitions": [
+              {
+                "timestamp_s": 25254756.032404914,
+                "action": "switch",
+                "status": "applied",
+                "from_policy": "mixed_80_20:selected:mbt1024_fcfs",
+                "target_policy": "balanced:mbt1024-seq256",
+                "active_policy": "balanced:mbt1024-seq256",
+                "drained": true,
+                "admission_resumed": true,
+                "detail": "admission policy updated without a server restart",
+                "steps": [
+                  "admission_paused",
+                  "in_flight_drained",
+                  "target_admission_resumed"
+                ],
+                "started_at_s": 25254756.032316465,
+                "completed_at_s": 25254756.03255663,
+                "duration_s": 0.00024016574025154114,
+                "requires_server_restart": false,
+                "started_offset_s": 497.7915312461555,
+                "completed_offset_s": 497.79177141189575
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "goodput_delta_rps": 1.2982456140350873
+  },
+  "limitations": [
+    "One reverse-order replication cannot isolate order from time drift.",
+    "Two cycles are a repeated-shift pilot, not a long-term reliability claim.",
+    "A compatible backend does not guarantee safe increased admission under a misclassified workload.",
+    "Recovery latency uses applied completion time bounded to its phase; null means no matching applied transition."
+  ]
+}

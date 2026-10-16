@@ -1,0 +1,67 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+dist/
+build/
+*.egg-info/
+node_modules/
+
+# Models and local caches are intentionally not versioned.
+models/
+cache/
+
+# Runtime process state and rolling server logs stay outside version control.
+run/
+logs/
+
+# Local credentials and evidence archives (keep source result JSON available).
+.env
+.env.*
+.codex_ssh/
+work/
+*.tar.gz
+*.pem
+
+# Public repository boundary: preserve local evidence without committing it.
+/results/*
+!/results/README.md
+!/results/*_policy.json
+!/results/*_analysis.json
+!/results/*_rows.csv
+!/results/*_search.csv
+!/results/*_summary.csv
+!/results/summary.csv
+!/results/poisson_boundary_aggregate.csv
+!/results/workload_slo_calibration.csv
+!/results/workload_slo_calibration_extended.csv
+!/results/generalization_7b_capacity_audit.json
+!/results/generalization_7b_capacity_extension_amendment.json
+!/results/generalization_7b_slo_evidence.json
+!/results/controller_replay.json
+!/results/controller_safety_scenarios.json
+!/results/recovery_fault_scenarios.json
+
+# Local operating instructions, editor state and credentials.
+/AGENTS.md
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+.ssh/
+ssh/
+id_rsa*
+id_ed25519*
+known_hosts*
+*.key
+*.p12
+*.pfx
+*.zip
+*.tar
+*.tgz
+*.7z
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+/controller-demo*.json

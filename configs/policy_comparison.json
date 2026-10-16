@@ -1,0 +1,15 @@
+{
+  "description": "Pilot: identical Poisson trace for conservative static, aggressive static and adaptive policies. No retries; downtime remains in the observation horizon.",
+  "seed": 81,
+  "metric_window_seconds": 30,
+  "phases": [
+    {"name": "balanced_before", "duration_s": 60, "request_rate": 16, "long_fraction": 0},
+    {"name": "mixed_shift", "duration_s": 150, "request_rate": 6, "long_fraction": 0.2},
+    {"name": "balanced_return", "duration_s": 120, "request_rate": 16, "long_fraction": 0}
+  ],
+  "modes": [
+    {"name": "static_aggressive", "adaptive": false, "initial_policy": "balanced:mbt2048-seq256"},
+    {"name": "adaptive", "adaptive": true, "initial_policy": "balanced:mbt2048-seq256"},
+    {"name": "static_conservative", "adaptive": false, "initial_policy": "mixed_80_20:selected:mbt1024_fcfs"}
+  ]
+}

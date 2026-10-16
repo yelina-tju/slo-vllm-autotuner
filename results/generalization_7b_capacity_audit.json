@@ -1,0 +1,359 @@
+{
+  "schema_version": 1,
+  "status": "valid",
+  "checks": {
+    "base_and_extension_seeds_disjoint": true,
+    "three_complete_trials_per_observed_rate": true,
+    "monotone_early_stopping_verified": true,
+    "policy_capacity_recomputed_from_raw_results": true
+  },
+  "workloads": {
+    "balanced": {
+      "mbt1024_fcfs": {
+        "base": [
+          {
+            "rate_rps": 1.0,
+            "seeds": [
+              111,
+              112,
+              113
+            ],
+            "passes": 3,
+            "trials": 3,
+            "robust": true
+          },
+          {
+            "rate_rps": 2.0,
+            "seeds": [
+              111,
+              112,
+              113
+            ],
+            "passes": 3,
+            "trials": 3,
+            "robust": true
+          },
+          {
+            "rate_rps": 4.0,
+            "seeds": [
+              111,
+              112,
+              113
+            ],
+            "passes": 3,
+            "trials": 3,
+            "robust": true
+          },
+          {
+            "rate_rps": 6.0,
+            "seeds": [
+              111,
+              112,
+              113
+            ],
+            "passes": 3,
+            "trials": 3,
+            "robust": true
+          },
+          {
+            "rate_rps": 8.0,
+            "seeds": [
+              111,
+              112,
+              113
+            ],
+            "passes": 3,
+            "trials": 3,
+            "robust": true
+          },
+          {
+            "rate_rps": 10.0,
+            "seeds": [
+              111,
+              112,
+              113
+            ],
+            "passes": 3,
+            "trials": 3,
+            "robust": true
+          },
+          {
+            "rate_rps": 12.0,
+            "seeds": [
+              111,
+              112,
+              113
+            ],
+            "passes": 3,
+            "trials": 3,
+            "robust": true
+          }
+        ],
+        "extension": [
+          {
+            "rate_rps": 14.0,
+            "seeds": [
+              114,
+              115,
+              116
+            ],
+            "passes": 2,
+            "trials": 3,
+            "robust": false
+          }
+        ],
+        "recomputed_capacity_rps": 12.0,
+        "capacity_bound_status": "bounded_by_observed_failure",
+        "errors": []
+      },
+      "mbt2048_fcfs": {
+        "base": [
+          {
+            "rate_rps": 1.0,
+            "seeds": [
+              111,
+              112,
+              113
+            ],
+            "passes": 3,
+            "trials": 3,
+            "robust": true
+          },
+          {
+            "rate_rps": 2.0,
+            "seeds": [
+              111,
+              112,
+              113
+            ],
+            "passes": 3,
+            "trials": 3,
+            "robust": true
+          },
+          {
+            "rate_rps": 4.0,
+            "seeds": [
+              111,
+              112,
+              113
+            ],
+            "passes": 3,
+            "trials": 3,
+            "robust": true
+          },
+          {
+            "rate_rps": 6.0,
+            "seeds": [
+              111,
+              112,
+              113
+            ],
+            "passes": 3,
+            "trials": 3,
+            "robust": true
+          },
+          {
+            "rate_rps": 8.0,
+            "seeds": [
+              111,
+              112,
+              113
+            ],
+            "passes": 3,
+            "trials": 3,
+            "robust": true
+          },
+          {
+            "rate_rps": 10.0,
+            "seeds": [
+              111,
+              112,
+              113
+            ],
+            "passes": 3,
+            "trials": 3,
+            "robust": true
+          },
+          {
+            "rate_rps": 12.0,
+            "seeds": [
+              111,
+              112,
+              113
+            ],
+            "passes": 3,
+            "trials": 3,
+            "robust": true
+          }
+        ],
+        "extension": [
+          {
+            "rate_rps": 14.0,
+            "seeds": [
+              114,
+              115,
+              116
+            ],
+            "passes": 2,
+            "trials": 3,
+            "robust": false
+          }
+        ],
+        "recomputed_capacity_rps": 12.0,
+        "capacity_bound_status": "bounded_by_observed_failure",
+        "errors": []
+      }
+    },
+    "mixed": {
+      "mbt1024_fcfs": {
+        "base": [
+          {
+            "rate_rps": 1.0,
+            "seeds": [
+              111,
+              112,
+              113
+            ],
+            "passes": 3,
+            "trials": 3,
+            "robust": true
+          },
+          {
+            "rate_rps": 1.5,
+            "seeds": [
+              111,
+              112,
+              113
+            ],
+            "passes": 3,
+            "trials": 3,
+            "robust": true
+          },
+          {
+            "rate_rps": 2.0,
+            "seeds": [
+              111,
+              112,
+              113
+            ],
+            "passes": 3,
+            "trials": 3,
+            "robust": true
+          },
+          {
+            "rate_rps": 2.5,
+            "seeds": [
+              111,
+              112,
+              113
+            ],
+            "passes": 3,
+            "trials": 3,
+            "robust": true
+          },
+          {
+            "rate_rps": 3.0,
+            "seeds": [
+              111,
+              112,
+              113
+            ],
+            "passes": 3,
+            "trials": 3,
+            "robust": true
+          },
+          {
+            "rate_rps": 4.0,
+            "seeds": [
+              111,
+              112,
+              113
+            ],
+            "passes": 2,
+            "trials": 3,
+            "robust": false
+          }
+        ],
+        "extension": [],
+        "recomputed_capacity_rps": 3.0,
+        "capacity_bound_status": "bounded_by_observed_failure",
+        "errors": []
+      },
+      "mbt2048_fcfs": {
+        "base": [
+          {
+            "rate_rps": 1.0,
+            "seeds": [
+              111,
+              112,
+              113
+            ],
+            "passes": 3,
+            "trials": 3,
+            "robust": true
+          },
+          {
+            "rate_rps": 1.5,
+            "seeds": [
+              111,
+              112,
+              113
+            ],
+            "passes": 3,
+            "trials": 3,
+            "robust": true
+          },
+          {
+            "rate_rps": 2.0,
+            "seeds": [
+              111,
+              112,
+              113
+            ],
+            "passes": 3,
+            "trials": 3,
+            "robust": true
+          },
+          {
+            "rate_rps": 2.5,
+            "seeds": [
+              111,
+              112,
+              113
+            ],
+            "passes": 3,
+            "trials": 3,
+            "robust": true
+          },
+          {
+            "rate_rps": 3.0,
+            "seeds": [
+              111,
+              112,
+              113
+            ],
+            "passes": 3,
+            "trials": 3,
+            "robust": true
+          },
+          {
+            "rate_rps": 4.0,
+            "seeds": [
+              111,
+              112,
+              113
+            ],
+            "passes": 2,
+            "trials": 3,
+            "robust": false
+          }
+        ],
+        "extension": [],
+        "recomputed_capacity_rps": 3.0,
+        "capacity_bound_status": "bounded_by_observed_failure",
+        "errors": []
+      }
+    }
+  },
+  "errors": []
+}

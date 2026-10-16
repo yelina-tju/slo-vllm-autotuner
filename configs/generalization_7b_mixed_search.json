@@ -1,0 +1,40 @@
+{
+  "description": "Experiment 017 preregistered Qwen2.5-7B mixed ascending capacity search with monotone early stopping.",
+  "model": "qwen2.5-7b",
+  "seeds": [
+    111,
+    112,
+    113
+  ],
+  "planned_rates_rps": [
+    1,
+    1.5,
+    2,
+    2.5,
+    3,
+    4
+  ],
+  "early_stopping": "stop higher rates for a candidate after the first rate that does not pass all three seeds",
+  "evidence_policy": {
+    "min_repetitions": 3,
+    "required_window_pass_rate": 1.0
+  },
+  "candidates": [
+    {
+      "name": "mbt1024_fcfs",
+      "max_num_batched_tokens": 1024,
+      "scheduling_policy": "fcfs",
+      "patterns": [
+        "generalization7b_mixed_rps*_mbt1024_fcfs_seed*.json"
+      ]
+    },
+    {
+      "name": "mbt2048_fcfs",
+      "max_num_batched_tokens": 2048,
+      "scheduling_policy": "fcfs",
+      "patterns": [
+        "generalization7b_mixed_rps*_mbt2048_fcfs_seed*.json"
+      ]
+    }
+  ]
+}

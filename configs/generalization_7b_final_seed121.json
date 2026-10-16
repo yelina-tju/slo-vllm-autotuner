@@ -1,0 +1,76 @@
+{
+  "description": "Experiment 017 preregistered Qwen2.5-7B final model-scale generalization benchmark with cyclic execution order.",
+  "seed": 121,
+  "metric_window_seconds": 30,
+  "derived_capacities": {
+    "mixed_safe_rps": 3.0,
+    "balanced_compatible_rps": 12.0,
+    "canary_limits_rps": [
+      6.0,
+      9.0
+    ]
+  },
+  "phases": [
+    {
+      "name": "balanced_before",
+      "duration_s": 60,
+      "request_rate": 8.0,
+      "long_fraction": 0
+    },
+    {
+      "name": "mixed_shift",
+      "duration_s": 150,
+      "request_rate": 6.0,
+      "long_fraction": 0.2
+    },
+    {
+      "name": "balanced_return",
+      "duration_s": 120,
+      "request_rate": 8.0,
+      "long_fraction": 0
+    }
+  ],
+  "modes": [
+    {
+      "name": "static_aggressive",
+      "adaptive": false,
+      "initial_policy": "balanced:mbt1024-seq256"
+    },
+    {
+      "name": "oracle_boundary",
+      "adaptive": false,
+      "initial_policy": "balanced:mbt1024-seq256",
+      "oracle_transitions": [
+        {
+          "at_s": 60,
+          "profile": "mixed_80_20"
+        },
+        {
+          "at_s": 210,
+          "profile": "balanced"
+        }
+      ]
+    },
+    {
+      "name": "binary_recovery",
+      "adaptive": true,
+      "initial_policy": "balanced:mbt1024-seq256",
+      "controller_overrides": {
+        "compatible_recovery_canary_admission_limits_rps": [],
+        "compatible_recovery_canary_pass_windows": 2
+      }
+    },
+    {
+      "name": "canary_recovery",
+      "adaptive": true,
+      "initial_policy": "balanced:mbt1024-seq256",
+      "controller_overrides": {
+        "compatible_recovery_canary_admission_limits_rps": [
+          6.0,
+          9.0
+        ],
+        "compatible_recovery_canary_pass_windows": 2
+      }
+    }
+  ]
+}

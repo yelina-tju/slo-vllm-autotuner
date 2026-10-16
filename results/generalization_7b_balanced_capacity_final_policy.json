@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-09-12T03:36:58.425479+00:00",
+  "workload": "qwen2.5-7b_balanced",
+  "status": "ready",
+  "evidence_policy": {
+    "min_repetitions": 3,
+    "required_window_pass_rate": 1.0
+  },
+  "class_slos": [
+    {
+      "name": "interactive_short",
+      "weight": 1.0,
+      "input_tokens": 256,
+      "output_tokens": 64,
+      "ttft_slo_ms": 730.5078562349079,
+      "e2el_slo_ms": 2407.1432022899385,
+      "priority": 0
+    }
+  ],
+  "selected": {
+    "candidate": "mbt1024_fcfs",
+    "max_num_batched_tokens": 1024,
+    "scheduling_policy": "fcfs",
+    "admission_limit_rps": 12.0,
+    "capacity_bound_status": "bounded_by_observed_failure",
+    "evidence": {
+      "trials": 3,
+      "feasible_trials": 3,
+      "worst_p99_ttft_ms": {
+        "interactive_short": 205.13539165258402
+      },
+      "worst_p99_e2el_ms": {
+        "interactive_short": 1955.4577116295695
+      },
+      "min_goodput_rps": 10.465031100938683
+    }
+  },
+  "rollback": {
+    "candidate": "mbt2048_fcfs",
+    "max_num_batched_tokens": 2048,
+    "scheduling_policy": "fcfs",
+    "admission_limit_rps": 12.0,
+    "capacity_bound_status": "bounded_by_observed_failure",
+    "evidence": {
+      "trials": 3,
+      "feasible_trials": 3,
+      "worst_p99_ttft_ms": {
+        "interactive_short": 210.82032799720764
+      },
+      "worst_p99_e2el_ms": {
+        "interactive_short": 1998.4547277539968
+      },
+      "min_goodput_rps": 10.465552538313107
+    }
+  },
+  "selection_rule": "highest robust capacity, then lowest worst normalized class E2E ratio, then mean goodput",
+  "candidate_capacities": {
+    "mbt1024_fcfs": 12.0,
+    "mbt2048_fcfs": 12.0
+  },
+  "candidate_capacity_bound_status": {
+    "mbt1024_fcfs": "bounded_by_observed_failure",
+    "mbt2048_fcfs": "bounded_by_observed_failure"
+  }
+}

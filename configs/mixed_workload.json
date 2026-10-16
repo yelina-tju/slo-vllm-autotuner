@@ -1,0 +1,23 @@
+{
+  "description": "Interactive short prompts mixed with document-length prompts. The 2048/64 SLO preserves the balanced workload's relative headroom using an isolated concurrency-one calibration.",
+  "classes": [
+    {
+      "name": "interactive_short",
+      "weight": 0.8,
+      "input_tokens": 256,
+      "output_tokens": 64,
+      "ttft_slo_ms": 100,
+      "e2el_slo_ms": 400,
+      "priority": 0
+    },
+    {
+      "name": "document_long",
+      "weight": 0.2,
+      "input_tokens": 2048,
+      "output_tokens": 64,
+      "ttft_slo_ms": 295,
+      "e2el_slo_ms": 500,
+      "priority": 1
+    }
+  ]
+}

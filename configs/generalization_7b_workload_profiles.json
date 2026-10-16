@@ -1,0 +1,13 @@
+{
+  "description": "Experiment 017 frozen Qwen2.5-7B workload profile.",
+  "profiles": [
+    {
+      "name": "balanced",
+      "input_tokens": 256,
+      "output_tokens": 64,
+      "ttft_slo_ms": 730.5078562349079,
+      "e2el_slo_ms": 2407.1432022899385,
+      "status": "completed"
+    }
+  ]
+}

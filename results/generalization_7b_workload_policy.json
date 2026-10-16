@@ -1,0 +1,17 @@
+{
+  "policies": [
+    {
+      "workload": "balanced",
+      "selected_candidate": "mbt1024-seq256",
+      "robust_capacity_rps": 12.0,
+      "status": "ready",
+      "compatible_candidates": [
+        {
+          "candidate": "mbt2048-seq256",
+          "robust_capacity_rps": 12.0,
+          "status": "ready"
+        }
+      ]
+    }
+  ]
+}

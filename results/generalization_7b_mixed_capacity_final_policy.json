@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-09-12T03:36:58.624982+00:00",
+  "workload": "qwen2.5-7b_mixed",
+  "status": "ready",
+  "evidence_policy": {
+    "min_repetitions": 3,
+    "required_window_pass_rate": 1.0
+  },
+  "class_slos": [
+    {
+      "name": "interactive_short",
+      "weight": 0.8,
+      "input_tokens": 256,
+      "output_tokens": 64,
+      "ttft_slo_ms": 730.5078562349079,
+      "e2el_slo_ms": 2407.1432022899385,
+      "priority": 0
+    },
+    {
+      "name": "document_long",
+      "weight": 0.2,
+      "input_tokens": 2048,
+      "output_tokens": 64,
+      "ttft_slo_ms": 1638.9367562904954,
+      "e2el_slo_ms": 2673.2248915657397,
+      "priority": 1
+    }
+  ],
+  "selected": {
+    "candidate": "mbt1024_fcfs",
+    "max_num_batched_tokens": 1024,
+    "scheduling_policy": "fcfs",
+    "admission_limit_rps": 3.0,
+    "capacity_bound_status": "bounded_by_observed_failure",
+    "evidence": {
+      "trials": 3,
+      "feasible_trials": 3,
+      "worst_p99_ttft_ms": {
+        "interactive_short": 381.11350208520895,
+        "document_long": 616.144266985357
+      },
+      "worst_p99_e2el_ms": {
+        "interactive_short": 1978.808818608523,
+        "document_long": 2114.0565845370293
+      },
+      "min_goodput_rps": 2.825013429536433
+    }
+  },
+  "rollback": {
+    "candidate": "mbt2048_fcfs",
+    "max_num_batched_tokens": 2048,
+    "scheduling_policy": "fcfs",
+    "admission_limit_rps": 3.0,
+    "capacity_bound_status": "bounded_by_observed_failure",
+    "evidence": {
+      "trials": 3,
+      "feasible_trials": 3,
+      "worst_p99_ttft_ms": {
+        "interactive_short": 373.9847427979113,
+        "document_long": 650.8665665984154
+      },
+      "worst_p99_e2el_ms": {
+        "interactive_short": 2189.0058329328895,
+        "document_long": 2152.166947685182
+      },
+      "min_goodput_rps": 2.8250043683505623
+    }
+  },
+  "selection_rule": "highest robust capacity, then lowest worst normalized class E2E ratio, then mean goodput",
+  "candidate_capacities": {
+    "mbt1024_fcfs": 3.0,
+    "mbt2048_fcfs": 3.0
+  },
+  "candidate_capacity_bound_status": {
+    "mbt1024_fcfs": "bounded_by_observed_failure",
+    "mbt2048_fcfs": "bounded_by_observed_failure"
+  }
+}

@@ -1,0 +1,342 @@
+{
+  "schema_version": 1,
+  "scenario": "balanced -> mixed_80_20 -> two SLO violations -> rollback -> balanced after cooldown",
+  "decisions": [
+    {
+      "timestamp_s": 60,
+      "action": "hold",
+      "from_policy": "balanced:mbt2048-seq256",
+      "to_policy": "balanced:mbt2048-seq256",
+      "active_profile": "balanced",
+      "reason": "active profile retained by distance/hysteresis",
+      "pending_profile": null,
+      "pending_count": 0,
+      "cooldown_until_s": 0.0,
+      "admission_limit_rps": 24.0,
+      "server_environment": {
+        "MAX_NUM_BATCHED_TOKENS": "2048",
+        "MAX_NUM_SEQS": "256",
+        "SCHEDULING_POLICY": "fcfs"
+      },
+      "requires_server_restart": false,
+      "detector": {
+        "timestamp_s": 60,
+        "sample_count": 60,
+        "estimated_rps": 1.0,
+        "distribution": {
+          "balanced": 1.0,
+          "prefill_heavy": 0.0,
+          "decode_heavy": 0.0
+        },
+        "profile_distances": {
+          "balanced": 0.0,
+          "prefill_heavy_4x": 1.0,
+          "decode_heavy_4x": 1.0,
+          "mixed_80_20": 0.19999999999999998
+        },
+        "best_profile": "balanced",
+        "best_distance": 0.0,
+        "status": "ready"
+      }
+    },
+    {
+      "timestamp_s": 121,
+      "action": "hold",
+      "from_policy": "balanced:mbt2048-seq256",
+      "to_policy": "balanced:mbt2048-seq256",
+      "active_profile": "balanced",
+      "reason": "candidate mixed_80_20 awaiting confirmation",
+      "pending_profile": "mixed_80_20",
+      "pending_count": 1,
+      "cooldown_until_s": 0.0,
+      "admission_limit_rps": 24.0,
+      "server_environment": {
+        "MAX_NUM_BATCHED_TOKENS": "2048",
+        "MAX_NUM_SEQS": "256",
+        "SCHEDULING_POLICY": "fcfs"
+      },
+      "requires_server_restart": false,
+      "detector": {
+        "timestamp_s": 121,
+        "sample_count": 60,
+        "estimated_rps": 1.0,
+        "distribution": {
+          "balanced": 0.8,
+          "prefill_heavy": 0.2,
+          "decode_heavy": 0.0
+        },
+        "profile_distances": {
+          "balanced": 0.19999999999999998,
+          "prefill_heavy_4x": 0.8,
+          "decode_heavy_4x": 1.0,
+          "mixed_80_20": 0.0
+        },
+        "best_profile": "mixed_80_20",
+        "best_distance": 0.0,
+        "status": "ready"
+      }
+    },
+    {
+      "timestamp_s": 131,
+      "action": "hold",
+      "from_policy": "balanced:mbt2048-seq256",
+      "to_policy": "balanced:mbt2048-seq256",
+      "active_profile": "balanced",
+      "reason": "candidate mixed_80_20 awaiting confirmation",
+      "pending_profile": "mixed_80_20",
+      "pending_count": 2,
+      "cooldown_until_s": 0.0,
+      "admission_limit_rps": 24.0,
+      "server_environment": {
+        "MAX_NUM_BATCHED_TOKENS": "2048",
+        "MAX_NUM_SEQS": "256",
+        "SCHEDULING_POLICY": "fcfs"
+      },
+      "requires_server_restart": false,
+      "detector": {
+        "timestamp_s": 131,
+        "sample_count": 50,
+        "estimated_rps": 0.8333333333333334,
+        "distribution": {
+          "balanced": 0.8,
+          "prefill_heavy": 0.2,
+          "decode_heavy": 0.0
+        },
+        "profile_distances": {
+          "balanced": 0.19999999999999998,
+          "prefill_heavy_4x": 0.8,
+          "decode_heavy_4x": 1.0,
+          "mixed_80_20": 0.0
+        },
+        "best_profile": "mixed_80_20",
+        "best_distance": 0.0,
+        "status": "ready"
+      }
+    },
+    {
+      "timestamp_s": 141,
+      "action": "switch",
+      "from_policy": "balanced:mbt2048-seq256",
+      "to_policy": "mixed_80_20:selected:mbt1024_fcfs",
+      "active_profile": "mixed_80_20",
+      "reason": "confirmed workload profile mixed_80_20",
+      "pending_profile": null,
+      "pending_count": 0,
+      "cooldown_until_s": 261.0,
+      "admission_limit_rps": 3.0,
+      "server_environment": {
+        "MAX_NUM_BATCHED_TOKENS": "1024",
+        "MAX_NUM_SEQS": "256",
+        "SCHEDULING_POLICY": "fcfs"
+      },
+      "requires_server_restart": true,
+      "detector": {
+        "timestamp_s": 141,
+        "sample_count": 40,
+        "estimated_rps": 0.6666666666666666,
+        "distribution": {
+          "balanced": 0.8,
+          "prefill_heavy": 0.2,
+          "decode_heavy": 0.0
+        },
+        "profile_distances": {
+          "balanced": 0.19999999999999998,
+          "prefill_heavy_4x": 0.8,
+          "decode_heavy_4x": 1.0,
+          "mixed_80_20": 0.0
+        },
+        "best_profile": "mixed_80_20",
+        "best_distance": 0.0,
+        "status": "ready"
+      }
+    },
+    {
+      "timestamp_s": 145,
+      "action": "hold",
+      "from_policy": "mixed_80_20:selected:mbt1024_fcfs",
+      "to_policy": "mixed_80_20:selected:mbt1024_fcfs",
+      "active_profile": "mixed_80_20",
+      "reason": "SLO window pass",
+      "pending_profile": null,
+      "pending_count": 0,
+      "cooldown_until_s": 261.0,
+      "admission_limit_rps": 3.0,
+      "server_environment": {
+        "MAX_NUM_BATCHED_TOKENS": "1024",
+        "MAX_NUM_SEQS": "256",
+        "SCHEDULING_POLICY": "fcfs"
+      },
+      "requires_server_restart": false,
+      "detector": null
+    },
+    {
+      "timestamp_s": 150,
+      "action": "hold",
+      "from_policy": "mixed_80_20:selected:mbt1024_fcfs",
+      "to_policy": "mixed_80_20:selected:mbt1024_fcfs",
+      "active_profile": "mixed_80_20",
+      "reason": "SLO violation awaiting rollback confirmation: interactive_short: P99 E2E 430.00 > 400.00 ms",
+      "pending_profile": null,
+      "pending_count": 0,
+      "cooldown_until_s": 261.0,
+      "admission_limit_rps": 3.0,
+      "server_environment": {
+        "MAX_NUM_BATCHED_TOKENS": "1024",
+        "MAX_NUM_SEQS": "256",
+        "SCHEDULING_POLICY": "fcfs"
+      },
+      "requires_server_restart": false,
+      "detector": null
+    },
+    {
+      "timestamp_s": 160,
+      "action": "rollback",
+      "from_policy": "mixed_80_20:selected:mbt1024_fcfs",
+      "to_policy": "mixed_80_20:rollback:mbt2048_fcfs",
+      "active_profile": "mixed_80_20",
+      "reason": "confirmed SLO violation: interactive_short: P99 E2E 430.00 > 400.00 ms",
+      "pending_profile": null,
+      "pending_count": 0,
+      "cooldown_until_s": 460.0,
+      "admission_limit_rps": 3.0,
+      "server_environment": {
+        "MAX_NUM_BATCHED_TOKENS": "2048",
+        "MAX_NUM_SEQS": "256",
+        "SCHEDULING_POLICY": "fcfs"
+      },
+      "requires_server_restart": true,
+      "detector": null
+    },
+    {
+      "timestamp_s": 460,
+      "action": "hold",
+      "from_policy": "mixed_80_20:rollback:mbt2048_fcfs",
+      "to_policy": "mixed_80_20:rollback:mbt2048_fcfs",
+      "active_profile": "mixed_80_20",
+      "reason": "candidate balanced awaiting confirmation",
+      "pending_profile": "balanced",
+      "pending_count": 1,
+      "cooldown_until_s": 460.0,
+      "admission_limit_rps": 3.0,
+      "server_environment": {
+        "MAX_NUM_BATCHED_TOKENS": "2048",
+        "MAX_NUM_SEQS": "256",
+        "SCHEDULING_POLICY": "fcfs"
+      },
+      "requires_server_restart": false,
+      "detector": {
+        "timestamp_s": 460,
+        "sample_count": 60,
+        "estimated_rps": 1.0,
+        "distribution": {
+          "balanced": 1.0,
+          "prefill_heavy": 0.0,
+          "decode_heavy": 0.0
+        },
+        "profile_distances": {
+          "balanced": 0.0,
+          "prefill_heavy_4x": 1.0,
+          "decode_heavy_4x": 1.0,
+          "mixed_80_20": 0.19999999999999998
+        },
+        "best_profile": "balanced",
+        "best_distance": 0.0,
+        "status": "ready"
+      }
+    },
+    {
+      "timestamp_s": 470,
+      "action": "hold",
+      "from_policy": "mixed_80_20:rollback:mbt2048_fcfs",
+      "to_policy": "mixed_80_20:rollback:mbt2048_fcfs",
+      "active_profile": "mixed_80_20",
+      "reason": "candidate balanced awaiting confirmation",
+      "pending_profile": "balanced",
+      "pending_count": 2,
+      "cooldown_until_s": 460.0,
+      "admission_limit_rps": 3.0,
+      "server_environment": {
+        "MAX_NUM_BATCHED_TOKENS": "2048",
+        "MAX_NUM_SEQS": "256",
+        "SCHEDULING_POLICY": "fcfs"
+      },
+      "requires_server_restart": false,
+      "detector": {
+        "timestamp_s": 470,
+        "sample_count": 50,
+        "estimated_rps": 0.8333333333333334,
+        "distribution": {
+          "balanced": 1.0,
+          "prefill_heavy": 0.0,
+          "decode_heavy": 0.0
+        },
+        "profile_distances": {
+          "balanced": 0.0,
+          "prefill_heavy_4x": 1.0,
+          "decode_heavy_4x": 1.0,
+          "mixed_80_20": 0.19999999999999998
+        },
+        "best_profile": "balanced",
+        "best_distance": 0.0,
+        "status": "ready"
+      }
+    },
+    {
+      "timestamp_s": 480,
+      "action": "switch",
+      "from_policy": "mixed_80_20:rollback:mbt2048_fcfs",
+      "to_policy": "balanced:mbt2048-seq256",
+      "active_profile": "balanced",
+      "reason": "confirmed workload profile balanced",
+      "pending_profile": null,
+      "pending_count": 0,
+      "cooldown_until_s": 600.0,
+      "admission_limit_rps": 24.0,
+      "server_environment": {
+        "MAX_NUM_BATCHED_TOKENS": "2048",
+        "MAX_NUM_SEQS": "256",
+        "SCHEDULING_POLICY": "fcfs"
+      },
+      "requires_server_restart": false,
+      "detector": {
+        "timestamp_s": 480,
+        "sample_count": 40,
+        "estimated_rps": 0.6666666666666666,
+        "distribution": {
+          "balanced": 1.0,
+          "prefill_heavy": 0.0,
+          "decode_heavy": 0.0
+        },
+        "profile_distances": {
+          "balanced": 0.0,
+          "prefill_heavy_4x": 1.0,
+          "decode_heavy_4x": 1.0,
+          "mixed_80_20": 0.19999999999999998
+        },
+        "best_profile": "balanced",
+        "best_distance": 0.0,
+        "status": "ready"
+      }
+    }
+  ],
+  "transition_sequence": [
+    "switch",
+    "rollback",
+    "switch"
+  ],
+  "final_state": {
+    "active_profile": "balanced",
+    "active_policy": "balanced:mbt2048-seq256",
+    "pending_profile": null,
+    "pending_count": 0,
+    "cooldown_until_s": 600.0,
+    "last_evaluation_s": 480,
+    "consecutive_slo_violations": 0,
+    "admission_limit_rps": 24.0,
+    "server_environment": {
+      "MAX_NUM_BATCHED_TOKENS": "2048",
+      "MAX_NUM_SEQS": "256",
+      "SCHEDULING_POLICY": "fcfs"
+    }
+  }
+}

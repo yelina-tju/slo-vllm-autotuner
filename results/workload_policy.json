@@ -1,0 +1,37 @@
+{
+  "policies": [
+    {
+      "workload": "balanced",
+      "selected_candidate": "mbt2048-seq256",
+      "robust_capacity_rps": 24.0,
+      "status": "ready",
+      "compatible_candidates": [
+        {
+          "candidate": "mbt1024-seq256",
+          "robust_capacity_rps": 24.0,
+          "status": "ready",
+          "evidence": {
+            "trials": 3,
+            "feasible_trials": 3,
+            "worst_p99_ttft_ms": 70.22628650069237,
+            "worst_p99_e2el_ms": 395.95891237258905
+          }
+        }
+      ]
+    },
+    {
+      "workload": "prefill_heavy_4x",
+      "selected_candidate": "mbt2048-seq256",
+      "robust_capacity_rps": 3.0,
+      "status": "ready",
+      "compatible_candidates": []
+    },
+    {
+      "workload": "decode_heavy_4x",
+      "selected_candidate": "mbt2048-seq256",
+      "robust_capacity_rps": 18.0,
+      "status": "ready",
+      "compatible_candidates": []
+    }
+  ]
+}

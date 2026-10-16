@@ -1,0 +1,23 @@
+{
+  "description": "Qwen2.5-7B low-load-calibrated SLO classes. Thresholds are frozen before capacity search according to Experiment 017.",
+  "classes": [
+    {
+      "name": "interactive_short",
+      "weight": 0.8,
+      "input_tokens": 256,
+      "output_tokens": 64,
+      "priority": 0,
+      "ttft_slo_ms": 730.5078562349079,
+      "e2el_slo_ms": 2407.1432022899385
+    },
+    {
+      "name": "document_long",
+      "weight": 0.2,
+      "input_tokens": 2048,
+      "output_tokens": 64,
+      "priority": 1,
+      "ttft_slo_ms": 1638.9367562904954,
+      "e2el_slo_ms": 2673.2248915657397
+    }
+  ]
+}

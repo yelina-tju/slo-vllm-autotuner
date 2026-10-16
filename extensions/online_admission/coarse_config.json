@@ -1,0 +1,18 @@
+{
+  "protocol": "coarse-bracket-dev307-308-v1",
+  "coarse_seed": 307,
+  "confirmation_seed": 308,
+  "rates": [18, 24, 36, 48],
+  "model_name": "qwen2.5-1.5b",
+  "profile": "balanced",
+  "slo_source": "configs/workload_profiles.json",
+  "phases": [{"seconds": 120, "rps": 72}],
+  "cohort_seconds": 20,
+  "request_timeout_seconds": 10,
+  "tick_seconds": 0.25,
+  "max_dispatch_lag_seconds": 0.25,
+  "max_pending_tasks": 128,
+  "feedback": {"minimum": 1, "maximum": 6, "initial": 3, "additive_step": 1,
+    "decrease_factor": 0.7, "grow_below": 0.8, "demand_fraction": 0.9,
+    "minimum_samples": 30, "confirmations": 2, "settle_seconds": 20}
+}

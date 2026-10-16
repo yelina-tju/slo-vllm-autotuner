@@ -1,0 +1,16 @@
+{
+  "purpose": "development plumbing smoke test; not held-out performance evidence",
+  "model_name": "qwen2.5-1.5b",
+  "profile": "balanced",
+  "slo_source": "configs/workload_profiles.json",
+  "seed": 201,
+  "phases": [{"seconds": 40, "rps": 6}, {"seconds": 40, "rps": 10}, {"seconds": 40, "rps": 6}],
+  "cohort_seconds": 20,
+  "request_timeout_seconds": 10,
+  "tick_seconds": 0.25,
+  "health_timeout_seconds": 240,
+  "whole_run_timeout_seconds": 600,
+  "max_dispatch_lag_seconds": 0.25,
+  "max_pending_tasks": 128,
+  "feedback": {"minimum": 1, "maximum": 6, "initial": 3, "additive_step": 1, "decrease_factor": 0.7, "grow_below": 0.8, "demand_fraction": 0.9, "minimum_samples": 30, "confirmations": 2, "settle_seconds": 20}
+}

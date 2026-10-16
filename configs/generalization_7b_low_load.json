@@ -1,0 +1,23 @@
+{
+  "description": "Experiment 017 measurement-only low-load classes. The provisional 60000 ms thresholds are not evaluation SLOs; derive_generalization_slos.py freezes final model-specific thresholds before capacity search.",
+  "classes": [
+    {
+      "name": "interactive_short",
+      "weight": 0.8,
+      "input_tokens": 256,
+      "output_tokens": 64,
+      "ttft_slo_ms": 60000,
+      "e2el_slo_ms": 60000,
+      "priority": 0
+    },
+    {
+      "name": "document_long",
+      "weight": 0.2,
+      "input_tokens": 2048,
+      "output_tokens": 64,
+      "ttft_slo_ms": 60000,
+      "e2el_slo_ms": 60000,
+      "priority": 1
+    }
+  ]
+}

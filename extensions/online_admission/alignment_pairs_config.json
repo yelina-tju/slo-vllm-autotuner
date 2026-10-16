@@ -1,0 +1,17 @@
+{
+  "purpose": "paired development comparison of adaptive evidence alignment, not held-out final benchmark",
+  "model_name": "qwen2.5-1.5b",
+  "profile": "balanced",
+  "slo_source": "configs/workload_profiles.json",
+  "pairs": [
+    {"seed": 202, "order": ["adaptive_fixed", "adaptive_deadline"]},
+    {"seed": 203, "order": ["adaptive_deadline", "adaptive_fixed"]}
+  ],
+  "phases": [{"seconds": 60, "rps": 6}, {"seconds": 60, "rps": 10}, {"seconds": 60, "rps": 6}],
+  "cohort_seconds": 20,
+  "request_timeout_seconds": 10,
+  "tick_seconds": 0.25,
+  "max_dispatch_lag_seconds": 0.25,
+  "max_pending_tasks": 128,
+  "feedback": {"minimum": 1, "maximum": 6, "initial": 3, "additive_step": 1, "decrease_factor": 0.7, "grow_below": 0.8, "demand_fraction": 0.9, "minimum_samples": 30, "confirmations": 2, "settle_seconds": 20}
+}

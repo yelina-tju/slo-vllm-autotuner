@@ -1,0 +1,4 @@
+workload_name,input_tokens,output_tokens,p99_ttft_ms,p99_e2el_ms,source,ttft_floor_ratio,e2el_floor_ratio,calibrated_ttft_slo_ms,calibrated_e2el_slo_ms
+prefill_heavy_4x,1024,64,59.00740161538124,314.34406742453575,calibration_c1_floor_mbt2048_seed32_i1024_o64.json,1.798450985913227,1.0890218939863445,180,440
+decode_heavy_4x,256,256,36.432827934622765,1076.3128958642483,calibration_c1_floor_mbt2048_seed32_i256_o256.json,1.1104141772877136,3.728806838886509,115,1500
+balanced,256,64,32.81012497842311,288.6480695754289,calibration_c1_floor_mbt2048_seed32_i256_o64.json,1.0,1.0,100,400

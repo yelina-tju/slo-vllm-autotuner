@@ -1,0 +1,503 @@
+{
+  "schema_version": 1,
+  "experimental_unit": "paired random seed",
+  "seed_count": 3,
+  "seeds": [
+    82,
+    83,
+    84
+  ],
+  "pairs": [
+    {
+      "seed": 82,
+      "trace_sha256": "761645fbf11fba3059b199c359c05138802ae61cad484b8499760d954ec0be30",
+      "metrics": {
+        "asymmetric_controller": {
+          "goodput_rps": 9.144392214581666,
+          "slo_compliant": 3020,
+          "http_429": 460,
+          "http_503": 270,
+          "restart_count": 1,
+          "transition_duration_s": 43.881284423172474,
+          "tail_violation_area_s": 11.407569482177484,
+          "class_windows_without_success": 1,
+          "mixed_detection_delay_s": 75.27241934835911,
+          "return_recovery_delay_s": 29.058025434613228,
+          "return_goodput_rps": 12.808333333333334,
+          "return_slo_compliant": 1537,
+          "return_http_429": 365,
+          "return_http_503": 3
+        },
+        "legacy_symmetric": {
+          "goodput_rps": 8.08445386438909,
+          "slo_compliant": 2670,
+          "http_429": 828,
+          "http_503": 255,
+          "restart_count": 1,
+          "transition_duration_s": 41.79632968083024,
+          "tail_violation_area_s": 11.221063549630335,
+          "class_windows_without_success": 0,
+          "mixed_detection_delay_s": 75.24369810521603,
+          "return_recovery_delay_s": 56.96189145371318,
+          "return_goodput_rps": 9.8,
+          "return_slo_compliant": 1176,
+          "return_http_429": 728,
+          "return_http_503": 1
+        }
+      }
+    },
+    {
+      "seed": 83,
+      "trace_sha256": "056762a173d458067702070f1ff3a407020003e57cc56d30d7e21dfad1b55ac3",
+      "metrics": {
+        "asymmetric_controller": {
+          "goodput_rps": 9.386342992476909,
+          "slo_compliant": 3099,
+          "http_429": 299,
+          "http_503": 273,
+          "restart_count": 1,
+          "transition_duration_s": 42.867735747247934,
+          "tail_violation_area_s": 5.120403885841367,
+          "class_windows_without_success": 1,
+          "mixed_detection_delay_s": 75.25651278346777,
+          "return_recovery_delay_s": 17.971093717962503,
+          "return_goodput_rps": 13.741666666666667,
+          "return_slo_compliant": 1649,
+          "return_http_429": 233,
+          "return_http_503": 4
+        },
+        "legacy_symmetric": {
+          "goodput_rps": 8.38989744460659,
+          "slo_compliant": 2770,
+          "http_429": 647,
+          "http_503": 247,
+          "restart_count": 1,
+          "transition_duration_s": 39.784637074917555,
+          "tail_violation_area_s": 5.4220122015103644,
+          "class_windows_without_success": 0,
+          "mixed_detection_delay_s": 75.25211860239506,
+          "return_recovery_delay_s": 45.018280413001776,
+          "return_goodput_rps": 10.975,
+          "return_slo_compliant": 1317,
+          "return_http_429": 568,
+          "return_http_503": 1
+        }
+      }
+    },
+    {
+      "seed": 84,
+      "trace_sha256": "16f5fd56c134a8069306633e96d797e0b643dba124c50549189fa25a550b3068",
+      "metrics": {
+        "asymmetric_controller": {
+          "goodput_rps": 8.910444693482622,
+          "slo_compliant": 2943,
+          "http_429": 370,
+          "http_503": 285,
+          "restart_count": 1,
+          "transition_duration_s": 45.283190701156855,
+          "tail_violation_area_s": 12.19230123795567,
+          "class_windows_without_success": 2,
+          "mixed_detection_delay_s": 75.252152454108,
+          "return_recovery_delay_s": 20.355048194527626,
+          "return_goodput_rps": 12.791666666666666,
+          "return_slo_compliant": 1535,
+          "return_http_429": 289,
+          "return_http_503": 0
+        },
+        "legacy_symmetric": {
+          "goodput_rps": 7.741765774395506,
+          "slo_compliant": 2557,
+          "http_429": 759,
+          "http_503": 282,
+          "restart_count": 1,
+          "transition_duration_s": 44.63316751271486,
+          "tail_violation_area_s": 12.468113645911208,
+          "class_windows_without_success": 0,
+          "mixed_detection_delay_s": 75.21470412239432,
+          "return_recovery_delay_s": 49.86567700281739,
+          "return_goodput_rps": 9.558333333333334,
+          "return_slo_compliant": 1147,
+          "return_http_429": 677,
+          "return_http_503": 0
+        }
+      }
+    }
+  ],
+  "mode_summaries": {
+    "asymmetric_controller": {
+      "goodput_rps": {
+        "mean": 9.147059966847065,
+        "sample_stdev": 0.23796036523552805,
+        "min": 8.910444693482622,
+        "max": 9.386342992476909
+      },
+      "slo_compliant": {
+        "mean": 3020.6666666666665,
+        "sample_stdev": 78.00213672287019,
+        "min": 2943.0,
+        "max": 3099.0
+      },
+      "http_429": {
+        "mean": 376.3333333333333,
+        "sample_stdev": 80.68663664655587,
+        "min": 299.0,
+        "max": 460.0
+      },
+      "http_503": {
+        "mean": 276.0,
+        "sample_stdev": 7.937253933193772,
+        "min": 270.0,
+        "max": 285.0
+      },
+      "restart_count": {
+        "mean": 1.0,
+        "sample_stdev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "transition_duration_s": {
+        "mean": 44.01073695719242,
+        "sample_stdev": 1.2129196706764735,
+        "min": 42.867735747247934,
+        "max": 45.283190701156855
+      },
+      "tail_violation_area_s": {
+        "mean": 9.573424868658174,
+        "sample_stdev": 3.8763382059859985,
+        "min": 5.120403885841367,
+        "max": 12.19230123795567
+      },
+      "class_windows_without_success": {
+        "mean": 1.3333333333333333,
+        "sample_stdev": 0.5773502691896257,
+        "min": 1.0,
+        "max": 2.0
+      },
+      "mixed_detection_delay_s": {
+        "mean": 75.26036152864496,
+        "sample_stdev": 0.010667538620769319,
+        "min": 75.252152454108,
+        "max": 75.27241934835911
+      },
+      "return_recovery_delay_s": {
+        "mean": 22.46138911570112,
+        "sample_stdev": 5.835881919605335,
+        "min": 17.971093717962503,
+        "max": 29.058025434613228
+      },
+      "return_goodput_rps": {
+        "mean": 13.113888888888889,
+        "sample_stdev": 0.5437353659163147,
+        "min": 12.791666666666666,
+        "max": 13.741666666666667
+      },
+      "return_slo_compliant": {
+        "mean": 1573.6666666666667,
+        "sample_stdev": 65.24824390995771,
+        "min": 1535.0,
+        "max": 1649.0
+      },
+      "return_http_429": {
+        "mean": 295.6666666666667,
+        "sample_stdev": 66.25204399362583,
+        "min": 233.0,
+        "max": 365.0
+      },
+      "return_http_503": {
+        "mean": 2.3333333333333335,
+        "sample_stdev": 2.0816659994661326,
+        "min": 0.0,
+        "max": 4.0
+      }
+    },
+    "legacy_symmetric": {
+      "goodput_rps": {
+        "mean": 8.072039027797063,
+        "sample_stdev": 0.3242441388959208,
+        "min": 7.741765774395506,
+        "max": 8.38989744460659
+      },
+      "slo_compliant": {
+        "mean": 2665.6666666666665,
+        "sample_stdev": 106.56609842409233,
+        "min": 2557.0,
+        "max": 2770.0
+      },
+      "http_429": {
+        "mean": 744.6666666666666,
+        "sample_stdev": 91.34732252963593,
+        "min": 647.0,
+        "max": 828.0
+      },
+      "http_503": {
+        "mean": 261.3333333333333,
+        "sample_stdev": 18.339392937971894,
+        "min": 247.0,
+        "max": 282.0
+      },
+      "restart_count": {
+        "mean": 1.0,
+        "sample_stdev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "transition_duration_s": {
+        "mean": 42.07137808948755,
+        "sample_stdev": 2.435939361291744,
+        "min": 39.784637074917555,
+        "max": 44.63316751271486
+      },
+      "tail_violation_area_s": {
+        "mean": 9.703729799017303,
+        "sample_stdev": 3.7601346617187756,
+        "min": 5.4220122015103644,
+        "max": 12.468113645911208
+      },
+      "class_windows_without_success": {
+        "mean": 0.0,
+        "sample_stdev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "mixed_detection_delay_s": {
+        "mean": 75.23684027666847,
+        "sample_stdev": 0.019627358144235947,
+        "min": 75.21470412239432,
+        "max": 75.25211860239506
+      },
+      "return_recovery_delay_s": {
+        "mean": 50.61528295651078,
+        "sample_stdev": 6.00698701407871,
+        "min": 45.018280413001776,
+        "max": 56.96189145371318
+      },
+      "return_goodput_rps": {
+        "mean": 10.111111111111112,
+        "sample_stdev": 0.7578447754677096,
+        "min": 9.558333333333334,
+        "max": 10.975
+      },
+      "return_slo_compliant": {
+        "mean": 1213.3333333333333,
+        "sample_stdev": 90.94137305612519,
+        "min": 1147.0,
+        "max": 1317.0
+      },
+      "return_http_429": {
+        "mean": 657.6666666666666,
+        "sample_stdev": 81.7333061446393,
+        "min": 568.0,
+        "max": 728.0
+      },
+      "return_http_503": {
+        "mean": 0.6666666666666666,
+        "sample_stdev": 0.5773502691896257,
+        "min": 0.0,
+        "max": 1.0
+      }
+    }
+  },
+  "paired_differences": {
+    "goodput_rps": {
+      "asymmetric_minus_legacy_by_seed": {
+        "82": 1.059938350192576,
+        "83": 0.9964455478703194,
+        "84": 1.1686789190871165
+      },
+      "summary": {
+        "mean": 1.075020939050004,
+        "sample_stdev": 0.08710164697155513,
+        "min": 0.9964455478703194,
+        "max": 1.1686789190871165
+      },
+      "relative_to_legacy_mean": 0.13317836241227735
+    },
+    "slo_compliant": {
+      "asymmetric_minus_legacy_by_seed": {
+        "82": 350,
+        "83": 329,
+        "84": 386
+      },
+      "summary": {
+        "mean": 355.0,
+        "sample_stdev": 28.827070610799147,
+        "min": 329.0,
+        "max": 386.0
+      },
+      "relative_to_legacy_mean": 0.13317494060272603
+    },
+    "http_429": {
+      "asymmetric_minus_legacy_by_seed": {
+        "82": -368,
+        "83": -348,
+        "84": -389
+      },
+      "summary": {
+        "mean": -368.3333333333333,
+        "sample_stdev": 20.50203241957571,
+        "min": -389.0,
+        "max": -348.0
+      },
+      "relative_to_legacy_mean": -0.4946284691136974
+    },
+    "http_503": {
+      "asymmetric_minus_legacy_by_seed": {
+        "82": 15,
+        "83": 26,
+        "84": 3
+      },
+      "summary": {
+        "mean": 14.666666666666666,
+        "sample_stdev": 11.50362261782493,
+        "min": 3.0,
+        "max": 26.0
+      },
+      "relative_to_legacy_mean": 0.05612244897959184
+    },
+    "restart_count": {
+      "asymmetric_minus_legacy_by_seed": {
+        "82": 0,
+        "83": 0,
+        "84": 0
+      },
+      "summary": {
+        "mean": 0.0,
+        "sample_stdev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "relative_to_legacy_mean": 0.0
+    },
+    "transition_duration_s": {
+      "asymmetric_minus_legacy_by_seed": {
+        "82": 2.0849547423422337,
+        "83": 3.0830986723303795,
+        "84": 0.6500231884419918
+      },
+      "summary": {
+        "mean": 1.9393588677048683,
+        "sample_stdev": 1.2230546580624442,
+        "min": 0.6500231884419918,
+        "max": 3.0830986723303795
+      },
+      "relative_to_legacy_mean": 0.04609687050373706
+    },
+    "tail_violation_area_s": {
+      "asymmetric_minus_legacy_by_seed": {
+        "82": 0.1865059325471492,
+        "83": -0.3016083156689975,
+        "84": -0.27581240795553796
+      },
+      "summary": {
+        "mean": -0.13030493035912874,
+        "sample_stdev": 0.27466925447755464,
+        "min": -0.3016083156689975,
+        "max": 0.1865059325471492
+      },
+      "relative_to_legacy_mean": -0.013428334574229872
+    },
+    "class_windows_without_success": {
+      "asymmetric_minus_legacy_by_seed": {
+        "82": 1,
+        "83": 1,
+        "84": 2
+      },
+      "summary": {
+        "mean": 1.3333333333333333,
+        "sample_stdev": 0.5773502691896257,
+        "min": 1.0,
+        "max": 2.0
+      },
+      "relative_to_legacy_mean": null
+    },
+    "mixed_detection_delay_s": {
+      "asymmetric_minus_legacy_by_seed": {
+        "82": 0.028721243143081665,
+        "83": 0.004394181072711945,
+        "84": 0.03744833171367645
+      },
+      "summary": {
+        "mean": 0.02352125197649002,
+        "sample_stdev": 0.017129627834496782,
+        "min": 0.004394181072711945,
+        "max": 0.03744833171367645
+      },
+      "relative_to_legacy_mean": 0.00031262944974822584
+    },
+    "return_recovery_delay_s": {
+      "asymmetric_minus_legacy_by_seed": {
+        "82": -27.90386601909995,
+        "83": -27.047186695039272,
+        "84": -29.510628808289766
+      },
+      "summary": {
+        "mean": -28.153893840809662,
+        "sample_stdev": 1.2506087298014885,
+        "min": -29.510628808289766,
+        "max": -27.047186695039272
+      },
+      "relative_to_legacy_mean": -0.55623306235391
+    },
+    "return_goodput_rps": {
+      "asymmetric_minus_legacy_by_seed": {
+        "82": 3.008333333333333,
+        "83": 2.7666666666666675,
+        "84": 3.2333333333333325
+      },
+      "summary": {
+        "mean": 3.0027777777777778,
+        "sample_stdev": 0.23338293123660994,
+        "min": 2.7666666666666675,
+        "max": 3.2333333333333325
+      },
+      "relative_to_legacy_mean": 0.2969780219780219
+    },
+    "return_slo_compliant": {
+      "asymmetric_minus_legacy_by_seed": {
+        "82": 361,
+        "83": 332,
+        "84": 388
+      },
+      "summary": {
+        "mean": 360.3333333333333,
+        "sample_stdev": 28.005951748393294,
+        "min": 332.0,
+        "max": 388.0
+      },
+      "relative_to_legacy_mean": 0.296978021978022
+    },
+    "return_http_429": {
+      "asymmetric_minus_legacy_by_seed": {
+        "82": -363,
+        "83": -335,
+        "84": -388
+      },
+      "summary": {
+        "mean": -362.0,
+        "sample_stdev": 26.514147167125703,
+        "min": -388.0,
+        "max": -335.0
+      },
+      "relative_to_legacy_mean": -0.550430816016219
+    },
+    "return_http_503": {
+      "asymmetric_minus_legacy_by_seed": {
+        "82": 2,
+        "83": 3,
+        "84": 0
+      },
+      "summary": {
+        "mean": 1.6666666666666667,
+        "sample_stdev": 1.5275252316519468,
+        "min": 0.0,
+        "max": 3.0
+      },
+      "relative_to_legacy_mean": 2.5000000000000004
+    }
+  },
+  "interpretation_guardrails": [
+    "Positive goodput/compliance deltas favor asymmetric recovery.",
+    "Negative rejection, delay, restart, and violation deltas favor asymmetric recovery.",
+    "With few seeds, report paired effects and dispersion; do not treat requests as independent replicates."
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "description": "Oracle and one-factor controller ablations on one identical short-mixed-short Poisson trace.",
+  "seed": 81,
+  "metric_window_seconds": 30,
+  "phases": [
+    {"name": "balanced_before", "duration_s": 60, "request_rate": 16, "long_fraction": 0},
+    {"name": "mixed_shift", "duration_s": 150, "request_rate": 6, "long_fraction": 0.2},
+    {"name": "balanced_return", "duration_s": 120, "request_rate": 16, "long_fraction": 0}
+  ],
+  "modes": [
+    {
+      "name": "oracle_boundary",
+      "adaptive": false,
+      "initial_policy": "balanced:mbt2048-seq256",
+      "oracle_transitions": [
+        {"at_s": 60, "profile": "mixed_80_20"},
+        {"at_s": 210, "profile": "balanced"}
+      ]
+    },
+    {
+      "name": "full_controller",
+      "adaptive": true,
+      "initial_policy": "balanced:mbt2048-seq256"
+    },
+    {
+      "name": "no_confirmation",
+      "adaptive": true,
+      "initial_policy": "balanced:mbt2048-seq256",
+      "controller_overrides": {"switch_confirmation_windows": 1}
+    },
+    {
+      "name": "no_hysteresis",
+      "adaptive": true,
+      "initial_policy": "balanced:mbt2048-seq256",
+      "controller_overrides": {"switch_margin": 0.0, "max_profile_distance": 1.0}
+    },
+    {
+      "name": "no_cooldown",
+      "adaptive": true,
+      "initial_policy": "balanced:mbt2048-seq256",
+      "controller_overrides": {"cooldown_seconds": 0.0, "rollback_cooldown_seconds": 0.0}
+    },
+    {
+      "name": "no_rollback",
+      "adaptive": true,
+      "initial_policy": "balanced:mbt2048-seq256",
+      "controller_overrides": {"rollback_confirmation_windows": 1000000}
+    }
+  ]
+}

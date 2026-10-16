@@ -1,0 +1,85 @@
+{
+  "evidence_policy": {
+    "min_repetitions": 3,
+    "required_pass_rate": 1.0,
+    "ttft_safety_margin_ms": 0.0,
+    "e2el_safety_margin_ms": 0.0
+  },
+  "workloads": [
+    {
+      "name": "balanced",
+      "input_tokens": 256,
+      "output_tokens": 64,
+      "max_p99_ttft_ms": 100.0,
+      "max_p99_e2el_ms": 400.0,
+      "paired_comparison_rate": 24,
+      "candidates": [
+        {
+          "name": "mbt1024-seq256",
+          "max_num_batched_tokens": 1024,
+          "max_num_seqs": 256,
+          "patterns": ["poisson_rps*_mbt1024_seq256_*.json"]
+        },
+        {
+          "name": "mbt2048-seq256",
+          "max_num_batched_tokens": 2048,
+          "max_num_seqs": 256,
+          "patterns": [
+            "poisson_rps*_mbt2048_seq256_*.json",
+            "poisson_rps25_boundary_seed*_i256_o64.json"
+          ]
+        },
+        {
+          "name": "mbt4096-seq256",
+          "max_num_batched_tokens": 4096,
+          "max_num_seqs": 256,
+          "patterns": ["poisson_rps*_mbt4096_seq256_*.json"]
+        }
+      ]
+    },
+    {
+      "name": "prefill_heavy_4x",
+      "input_tokens": 1024,
+      "output_tokens": 64,
+      "max_p99_ttft_ms": 180.0,
+      "max_p99_e2el_ms": 440.0,
+      "paired_comparison_rate": 4,
+      "candidates": [
+        {
+          "name": "mbt1024-seq256",
+          "max_num_batched_tokens": 1024,
+          "max_num_seqs": 256,
+          "patterns": ["poisson_rps*_workload_prefill4x_mbt1024_*.json"]
+        },
+        {
+          "name": "mbt2048-seq256",
+          "max_num_batched_tokens": 2048,
+          "max_num_seqs": 256,
+          "patterns": ["poisson_rps*_workload_prefill4x_mbt2048_*.json"]
+        },
+        {
+          "name": "mbt4096-seq256",
+          "max_num_batched_tokens": 4096,
+          "max_num_seqs": 256,
+          "patterns": ["poisson_rps*_workload_prefill4x_mbt4096_*.json"]
+        }
+      ]
+    },
+    {
+      "name": "decode_heavy_4x",
+      "input_tokens": 256,
+      "output_tokens": 256,
+      "max_p99_ttft_ms": 115.0,
+      "max_p99_e2el_ms": 1500.0,
+      "paired_comparison_rate": 18,
+      "candidates": [
+        {
+          "name": "mbt2048-seq256",
+          "max_num_batched_tokens": 2048,
+          "max_num_seqs": 256,
+          "patterns": ["poisson_rps*_workload_decode4x_mbt2048_*.json"]
+        }
+      ]
+    }
+  ]
+}

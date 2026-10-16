@@ -1,0 +1,614 @@
+{
+  "display-057c73b524ae81cb.svg": {
+    "display": true,
+    "latex": "\\theta=(B, M, P, C, S),"
+  },
+  "display-0a4cf98607242654.svg": {
+    "display": true,
+    "latex": "T^{\\mathrm{TTFT}}_i=t^{\\mathrm{first\\ token}}_i-t^{\\mathrm{dispatch}}_i,"
+  },
+  "display-2312aba321275df8.svg": {
+    "display": true,
+    "latex": "T^{\\mathrm{E2E}}_i=t^{\\mathrm{complete}}_i-t^{\\mathrm{dispatch}}_i."
+  },
+  "display-7a7e379f7111a3f0.svg": {
+    "display": true,
+    "latex": "T^{\\mathrm{TPOT}}_i=\\frac{T^{\\mathrm{E2E}}_i-T^{\\mathrm{TTFT}}_i}{\\max(1,N_i-1)}."
+  },
+  "display-120b5cab803c2235.svg": {
+    "display": true,
+    "latex": "\\mathrm{Throughput}=\\frac{\\sum_i \\mathbf 1[\\mathrm{transport\\ success}_i]}{T_{\\mathrm{window}}}."
+  },
+  "display-6bd52f25975449a3.svg": {
+    "display": true,
+    "latex": "\\mathrm{Goodput}=\\frac{1}{T_{\\mathrm{window}}}\n\\sum_i \\mathbf 1\\!\\left[\n\\begin{array}{l}\n\\mathrm{success}_i\\\\\nT^{\\mathrm{TTFT}}_i\\le\\tau^{\\mathrm{TTFT}}_{c_i}\\\\\nT^{\\mathrm{E2E}}_i\\le\\tau^{\\mathrm{E2E}}_{c_i}\n\\end{array}\n\\right]."
+  },
+  "display-f4cd1108aabe1e10.svg": {
+    "display": true,
+    "latex": "\\begin{aligned}\n(\\theta_w^*,\\lambda_w^*)\n=\\arg\\max_{\\theta\\in\\Theta,\\lambda\\in\\Lambda}^{\\mathrm{lex}}\n&\\quad \\left(\\lambda,\\ H(\\theta,\\lambda,w),\\ G(\\theta,\\lambda,w)\\right)\\\\\n\\mathrm{s.t.}\\quad\n&Q_{0.99}\\!\\left(T^{\\mathrm{TTFT}}_{c,r}\\right)\n\\le \\tau^{\\mathrm{TTFT}}_c,\n&&\\forall c\\in\\mathcal C_w,\\ \\forall r\\in\\mathcal R,\\\\\n&Q_{0.99}\\!\\left(T^{\\mathrm{E2E}}_{c,r}\\right)\n\\le \\tau^{\\mathrm{E2E}}_c,\n&&\\forall c\\in\\mathcal C_w,\\ \\forall r\\in\\mathcal R,\\\\\n&F_{c,r}=0,\n&&\\forall c\\in\\mathcal C_w,\\ \\forall r\\in\\mathcal R,\\\\\n&|\\mathcal R|\\ge K.\n\\end{aligned}"
+  },
+  "display-615bea26a94da171.svg": {
+    "display": true,
+    "latex": "H(\\theta,\\lambda,w)=\n1-\\max_{c\\in\\mathcal C_w}\n\\frac{Q_{0.99}(T^{\\mathrm{E2E}}_c)}{\\tau^{\\mathrm{E2E}}_c}."
+  },
+  "display-1afbc4ba642a60c7.svg": {
+    "display": true,
+    "latex": "\\lambda^{\\mathrm{robust}}_\\theta=\n\\max\\left\\{\n\\lambda:\\ n_{\\theta,\\lambda}\\ge K\n\\ \\land\\ \n\\frac{1}{n_{\\theta,\\lambda}}\n\\sum_{r=1}^{n_{\\theta,\\lambda}}\n\\mathbf 1[\\mathrm{window\\ feasible}_{r}]=1\n\\right\\}."
+  },
+  "display-d0c81e0e4d20b15c.svg": {
+    "display": true,
+    "latex": "\\frac{\n\\hat p+\\frac{z^2}{2n}\n\\pm z\\sqrt{\\frac{\\hat p(1-\\hat p)}{n}+\\frac{z^2}{4n^2}}\n}{1+\\frac{z^2}{n}}."
+  },
+  "display-3e039eb4c19a59bc.svg": {
+    "display": true,
+    "latex": "\\Delta t_i\\sim\\mathrm{Exp}(\\lambda)."
+  },
+  "display-50b698913ed7bde5.svg": {
+    "display": true,
+    "latex": "\\tau_{m,w}=\\mathrm{RoundUp}_{q_m}\\left(\nL^{\\mathrm{floor}}_{m,w}\n\\cdot\n\\frac{\\tau_{m,\\mathrm{base}}}\n{L^{\\mathrm{floor}}_{m,\\mathrm{base}}}\n\\right),"
+  },
+  "display-44d50a1a66fd5f9d.svg": {
+    "display": true,
+    "latex": "d(x,a)=\n\\left|\\log_2\\frac{L_{\\mathrm{in}}}{L^{a}_{\\mathrm{in}}}\\right|\n+\n\\left|\\log_2\\frac{L_{\\mathrm{out}}}{L^{a}_{\\mathrm{out}}}\\right|."
+  },
+  "display-498ceca69af61eca.svg": {
+    "display": true,
+    "latex": "\\hat p_t(s)=\\frac{N_t(s)}{\\sum_j N_t(j)}."
+  },
+  "display-e41460de74b497c4.svg": {
+    "display": true,
+    "latex": "D_{\\mathrm{TV}}(\\hat p_t,q_w)=\n\\frac{1}{2}\\sum_s|\\hat p_t(s)-q_w(s)|."
+  },
+  "display-7a165e42e684fbd9.svg": {
+    "display": true,
+    "latex": "N_t\\ge30,"
+  },
+  "display-4c247bbe7ecef1aa.svg": {
+    "display": true,
+    "latex": "D_{\\mathrm{TV}}(\\hat p_t,q_{w^*})\\le0.20,"
+  },
+  "display-127047f10e9d0da6.svg": {
+    "display": true,
+    "latex": "D_{\\mathrm{TV}}(\\hat p_t,q_{w_{\\mathrm{active}}})\n-D_{\\mathrm{TV}}(\\hat p_t,q_{w^*})\\ge0.08,"
+  },
+  "display-86231151d56c26cd.svg": {
+    "display": true,
+    "latex": "b_t=\\min(C,b_{t-1}+r\\Delta t)."
+  },
+  "display-16c4b07b6762db5c.svg": {
+    "display": true,
+    "latex": "\\hat p=(0.797468,0.202532),"
+  },
+  "display-06136dd18418510a.svg": {
+    "display": true,
+    "latex": "D_{\\mathrm{TV}}(\\hat p,q_{80/20})=0.002532."
+  },
+  "display-faf04a783da71e10.svg": {
+    "display": true,
+    "latex": "\\Delta G = G_{\\mathrm{adaptive}}-G_{\\mathrm{static}},"
+  },
+  "display-cb23938bfdae6135.svg": {
+    "display": true,
+    "latex": "\\mathrm{ViolationArea}=\n\\sum_t\\sum_c\n\\max\\left(0,\n\\frac{Q_{0.99}(T_{c,t})}{\\tau_c}-1\n\\right)\\Delta t,"
+  },
+  "display-1f6c8323234d8791.svg": {
+    "display": true,
+    "latex": "T_{\\mathrm{recovery}}=\nt_{\\mathrm{admission\\ resumed}}-t_{\\mathrm{switch\\ issued}},"
+  },
+  "display-8db5373eca78510d.svg": {
+    "display": true,
+    "latex": "\\max_{\\pi_t\\in\\Pi}\n\\left[\n\\widehat G(\\pi_t,w_t)\n-\\kappa_1\\mathbf 1[\\pi_t\\ne\\pi_{t-1}]\n-\\kappa_2 T_{\\mathrm{restart}}(\\pi_t)\n\\right]"
+  },
+  "display-f95b566d6106bc60.svg": {
+    "display": true,
+    "latex": "G_{\\max}=\\frac{N}{T}=\\frac{3796}{330}=11.503\\ \\mathrm{req/s}."
+  },
+  "display-09c14e9a3da95fc0.svg": {
+    "display": true,
+    "latex": "N-N_{\\mathrm{SLO}}\n=N_{429}+N_{503}+N_{\\mathrm{late}}\n=311+286+1=598."
+  },
+  "display-0f1530043fc5b85d.svg": {
+    "display": true,
+    "latex": "D_{\\mathrm{online}}\n=D_{\\mathrm{window}}\n+D_{\\mathrm{confirmation}}\n+D_{\\mathrm{distance}}\n+D_{\\mathrm{interaction}}."
+  },
+  "inline-91ba5301fe3a0f2d.svg": {
+    "display": false,
+    "latex": "w"
+  },
+  "inline-3bf1463b5436ca32.svg": {
+    "display": false,
+    "latex": "c\\in\\mathcal C_w"
+  },
+  "inline-163367a13c44ea97.svg": {
+    "display": false,
+    "latex": "\\theta"
+  },
+  "inline-48c33c2cf59b4ee9.svg": {
+    "display": false,
+    "latex": "\\lambda"
+  },
+  "inline-a9c2e4547c717024.svg": {
+    "display": false,
+    "latex": "r"
+  },
+  "inline-a6996fa7c1015335.svg": {
+    "display": false,
+    "latex": "T^{\\mathrm{TTFT}}"
+  },
+  "inline-a986e3aa03b4d1ed.svg": {
+    "display": false,
+    "latex": "T^{\\mathrm{E2E}}"
+  },
+  "inline-ef6c7ad3f6bcdd75.svg": {
+    "display": false,
+    "latex": "\\tau^{\\mathrm{TTFT}}_c,\\tau^{\\mathrm{E2E}}_c"
+  },
+  "inline-366698db0630b102.svg": {
+    "display": false,
+    "latex": "c"
+  },
+  "inline-14cc9ee98451fd51.svg": {
+    "display": false,
+    "latex": "B"
+  },
+  "inline-bd0d62e9cd9cb220.svg": {
+    "display": false,
+    "latex": "M"
+  },
+  "inline-66734d0984af2666.svg": {
+    "display": false,
+    "latex": "P"
+  },
+  "inline-a027972df6ca1bbe.svg": {
+    "display": false,
+    "latex": "C"
+  },
+  "inline-fb772c3cf3597178.svg": {
+    "display": false,
+    "latex": "S"
+  },
+  "inline-be098300053e6dfb.svg": {
+    "display": false,
+    "latex": "i"
+  },
+  "inline-73d7c64c6246125b.svg": {
+    "display": false,
+    "latex": "N_i"
+  },
+  "inline-220478fb1e12f300.svg": {
+    "display": false,
+    "latex": "H"
+  },
+  "inline-37ec03bd462d7e4d.svg": {
+    "display": false,
+    "latex": "G"
+  },
+  "inline-cb7800ab06eeeb7f.svg": {
+    "display": false,
+    "latex": "F_{c,r}"
+  },
+  "inline-6a18b62ae93592cb.svg": {
+    "display": false,
+    "latex": "K=3"
+  },
+  "inline-a0791f97a993b052.svg": {
+    "display": false,
+    "latex": "\\mu"
+  },
+  "inline-78cc5a98993c9ccb.svg": {
+    "display": false,
+    "latex": "\\rho=\\lambda/\\mu"
+  },
+  "inline-d4183b4fe53d8611.svg": {
+    "display": false,
+    "latex": "m\\in\\{\\mathrm{TTFT},\\mathrm{E2E}\\}"
+  },
+  "inline-d7f16cd6eee77c81.svg": {
+    "display": false,
+    "latex": "q_m"
+  },
+  "inline-2cd2f530325f23b9.svg": {
+    "display": false,
+    "latex": "x=(L_{\\mathrm{in}},L_{\\mathrm{out}})"
+  },
+  "inline-d5a226cb51f40ca0.svg": {
+    "display": false,
+    "latex": "a"
+  },
+  "inline-53e3af8747257688.svg": {
+    "display": false,
+    "latex": "W=60"
+  },
+  "inline-736fd8b1d51c40c8.svg": {
+    "display": false,
+    "latex": "s"
+  },
+  "inline-5cabdedcb1481d1e.svg": {
+    "display": false,
+    "latex": "q_w"
+  },
+  "inline-f51baf5aed5abd7e.svg": {
+    "display": false,
+    "latex": "\\Delta t"
+  },
+  "inline-745b32303b7d5fa1.svg": {
+    "display": false,
+    "latex": "b_t\\ge1"
+  },
+  "inline-a00995c3a2b9389e.svg": {
+    "display": false,
+    "latex": "\\in\\{1,4,8,16,32\\}"
+  },
+  "inline-b86c9f3c1d895c0a.svg": {
+    "display": false,
+    "latex": "\\in\\{1024,2048,4096\\}"
+  },
+  "display-17bde211b63642cf.svg": {
+    "display": true,
+    "latex": "(k,\\delta)=\n\\begin{cases}\n(1,0), & \\text{兼容且只提高准入容量},\\\\\n(3,0.08), & \\text{其他切换，尤其是需要模型重载的切换}.\n\\end{cases}"
+  },
+  "display-230f051edbd3dcd4.svg": {
+    "display": true,
+    "latex": "\\max_{\\pi}\\; \\mathbb{E}\\left[\n\\sum_{t=1}^{T} G(a_t,w_t)\n- \\lambda_r C_r(a_{t-1},a_t)\n- \\lambda_s C_s(a_{t-1},a_t)\n\\right]"
+  },
+  "display-878a23893c22c72e.svg": {
+    "display": true,
+    "latex": "\\begin{aligned}\n\\mathrm{P99\\_TTFT}_{c,t} &\\le S^{\\mathrm{TTFT}}_c, &&\\forall c,t,\\\\\n\\mathrm{P99\\_E2E}_{c,t} &\\le S^{\\mathrm{E2E}}_c, &&\\forall c,t,\\\\\na_t &\\in \\mathcal{A}_{\\mathrm{compatible}}(a_{t-1})\n      \\quad\\text{或执行安全重启事务},\\\\\n\\text{失败启动} &\\Rightarrow \\text{回滚到最后可用策略}.\n\\end{aligned}"
+  },
+  "display-457f2a82527e8acd.svg": {
+    "display": true,
+    "latex": "\\Delta d = d(w_t,p_{\\mathrm{current}})-d(w_t,p_{\\mathrm{candidate}})."
+  },
+  "display-df482195f07adf16.svg": {
+    "display": true,
+    "latex": "(k,\\delta)=\n\\begin{cases}\n(1,0), & \\text{服务器配置兼容且只提高准入容量},\\\\\n(3,0.08), & \\text{其他切换，尤其是需要重启的切换}.\n\\end{cases}"
+  },
+  "display-31b7a26d3ea76457.svg": {
+    "display": true,
+    "latex": "\\text{兼容恢复少两个确认窗口}\n\\Rightarrow \\text{更早提高准入上限}\n\\Rightarrow \\text{429 减少}\n\\Rightarrow \\text{SLO goodput 提高}."
+  },
+  "inline-5a50429053ac6ab3.svg": {
+    "display": false,
+    "latex": "0.08"
+  },
+  "inline-a3a9ee0c9b59a474.svg": {
+    "display": false,
+    "latex": "w_t"
+  },
+  "inline-ad66c02da2f44768.svg": {
+    "display": false,
+    "latex": "t"
+  },
+  "inline-191e4c11b78e9385.svg": {
+    "display": false,
+    "latex": "a_t"
+  },
+  "inline-1755d792cd8bc8db.svg": {
+    "display": false,
+    "latex": "G(a_t,w_t)"
+  },
+  "inline-12cd6683d335fbdc.svg": {
+    "display": false,
+    "latex": "C_r"
+  },
+  "inline-875077156dc1007b.svg": {
+    "display": false,
+    "latex": "C_s"
+  },
+  "inline-6dd0afcac6d66595.svg": {
+    "display": false,
+    "latex": "k"
+  },
+  "inline-fdd7d6979400425f.svg": {
+    "display": false,
+    "latex": "\\Delta d\\ge\\delta"
+  },
+  "inline-0f293e3ef4a8d03b.svg": {
+    "display": false,
+    "latex": "45.06\\,\\mathrm{s}"
+  },
+  "inline-cb6f223ad42e4358.svg": {
+    "display": false,
+    "latex": "8.072\\,\\mathrm{rps}"
+  },
+  "inline-b3f634918ac1da57.svg": {
+    "display": false,
+    "latex": "10.111\\,\\mathrm{rps}"
+  },
+  "inline-ce900d616b7e27be.svg": {
+    "display": false,
+    "latex": "0.04\\,\\mathrm{s}"
+  },
+  "inline-e751a5dc1abc6a9a.svg": {
+    "display": false,
+    "latex": "-0.13\\,\\mathrm{s}"
+  },
+  "display-652ad1d6aaa7a484.svg": {
+    "display": true,
+    "latex": "G=\\frac{1}{T}\\sum_{r=1}^{N}\n\\mathbf{1}\\!\\left[\ns_r=200\\;\\land\\;\n\\mathrm{TTFT}_r\\le S^{\\mathrm{TTFT}}_{c(r)}\\;\\land\\;\n\\mathrm{E2E}_r\\le S^{\\mathrm{E2E}}_{c(r)}\n\\right]."
+  },
+  "display-d7bb63713a9dcddb.svg": {
+    "display": true,
+    "latex": "\\Delta G=G_{\\mathrm{asym}}-G_{\\mathrm{legacy}}."
+  },
+  "display-3f36b396a6d60c76.svg": {
+    "display": true,
+    "latex": "D_p=t^{\\mathrm{done}}_p-t_p,\n\\qquad t^{\\mathrm{done}}_p\\in[t_p,t_{p+1})."
+  },
+  "display-39bcc87f5090e928.svg": {
+    "display": true,
+    "latex": "\\begin{aligned}\n\\max_{\\pi}\\quad &G(\\pi)-\\lambda_r R(\\pi)-\\lambda_f F(\\pi),\\\\\n\\mathrm{s.t.}\\quad\n&\\text{高风险或降低容量的切换保留确认、滞回与冷却},\\\\\n&\\text{需要更换服务器配置时执行安全重启事务},\\\\\n&\\text{启动或健康检查失败时回滚到最后可用策略},\\\\\n&\\text{仅兼容且提高准入容量的恢复使用快速路径}.\n\\end{aligned}"
+  },
+  "display-d77a1509a8762de3.svg": {
+    "display": true,
+    "latex": "\\begin{aligned}\n\\text{进入或降低容量}\n&\\Rightarrow \\text{强确认与滞回},\\\\\n\\text{兼容且提高容量}\n&\\Rightarrow \\text{一次确认快速恢复},\\\\\n\\text{同一服务器环境}\n&\\Rightarrow \\text{只更新准入，不重启模型}.\n\\end{aligned}"
+  },
+  "inline-cf58784c35cbc35a.svg": {
+    "display": false,
+    "latex": "T"
+  },
+  "inline-74ab86906e20d3e1.svg": {
+    "display": false,
+    "latex": "p"
+  },
+  "inline-0d573cb582e4c277.svg": {
+    "display": false,
+    "latex": "t_p"
+  },
+  "inline-05b88c5baca5e551.svg": {
+    "display": false,
+    "latex": "t^{\\mathrm{done}}_p"
+  },
+  "inline-42593c512edacda6.svg": {
+    "display": false,
+    "latex": "R"
+  },
+  "inline-33090fd5154cdaac.svg": {
+    "display": false,
+    "latex": "F"
+  },
+  "inline-9a59d7b468fff879.svg": {
+    "display": false,
+    "latex": "\\Delta G"
+  },
+  "display-02e02a903e67ce2a.svg": {
+    "display": true,
+    "latex": "G_{\\mathrm{legacy}}=8.184,\n\\qquad\nG_{\\mathrm{asym}}=9.482,\n\\qquad\n\\Delta G=+1.298\\ \\mathrm{req/s}."
+  },
+  "display-cdf45716b556d964.svg": {
+    "display": true,
+    "latex": "\\text{fast path}\n\\iff\n\\text{server-compatible}\n\\land\n\\text{admission-increasing}\n\\land\n\\text{known recovery target}."
+  },
+  "display-6acdba3a7f8195c3.svg": {
+    "display": true,
+    "latex": "C(a_{\\mathrm{safe}})<C(a_{\\mathrm{high}}),\n\\qquad\nE(a_{\\mathrm{safe}})=E(a_{\\mathrm{high}}),"
+  },
+  "display-ab288c0ce1d11b5c.svg": {
+    "display": true,
+    "latex": "V_j=\n\\bigvee_c\\left(\n\\mathrm{failed}_{c,j}>0\n\\lor \\mathrm{P99\\_TTFT}_{c,j}>S^{\\mathrm{TTFT}}_c\n\\lor \\mathrm{P99\\_E2E}_{c,j}>S^{\\mathrm{E2E}}_c\n\\right)."
+  },
+  "display-02034c379aed0bee.svg": {
+    "display": true,
+    "latex": "B_j\\setminus\\bigcup_{i<j}B_i\\ne\\varnothing"
+  },
+  "display-5a3fc7969fe46d92.svg": {
+    "display": true,
+    "latex": "a_{\\mathrm{high}}\n\\xrightarrow{\\;V_{j-1}\\land V_j\\;}\na_{\\mathrm{safe}},\n\\qquad R=0."
+  },
+  "display-122f10c6f49af4c9.svg": {
+    "display": true,
+    "latex": "t<T_{mathrm{block}}\n\\land C(a')>C(a_t)\n\\Rightarrow a_{t+1}=a_t."
+  },
+  "display-f48ad86ccc416095.svg": {
+    "display": true,
+    "latex": "\\text{记录最后安全点}\n\\land \\text{两次新鲜 SLO 违规}\n\\Rightarrow \\text{无重启降容回滚}\n\\Rightarrow \\text{阻断立即再次升容}."
+  },
+  "inline-ad89b63ef9b2de5e.svg": {
+    "display": false,
+    "latex": "a_{\\mathrm{safe}}"
+  },
+  "inline-88718ea99352963a.svg": {
+    "display": false,
+    "latex": "a_{\\mathrm{high}}"
+  },
+  "inline-6bfeeb047a2fb928.svg": {
+    "display": false,
+    "latex": "E(a)"
+  },
+  "inline-50a8852bc2f69c06.svg": {
+    "display": false,
+    "latex": "j"
+  },
+  "inline-ff56c75113e87373.svg": {
+    "display": false,
+    "latex": "B_j"
+  },
+  "inline-bd9945faa97c848b.svg": {
+    "display": false,
+    "latex": "T_{mathrm{block}}"
+  },
+  "display-d6b374cd186436c4.svg": {
+    "display": true,
+    "latex": "E(a_{\\mathrm{safe}})=E(a_{\\mathrm{high}})\n\\land C(a_{\\mathrm{safe}})<C(a_{\\mathrm{high}})\n\\land V_{j-1}\\land V_j\n\\Rightarrow\na_{\\mathrm{high}}\\to a_{\\mathrm{safe}},\\quad R=0."
+  },
+  "display-60f0f9688492ff54.svg": {
+    "display": true,
+    "latex": "3\\ \\mathrm{req/s}\\longrightarrow24\\ \\mathrm{req/s}."
+  },
+  "display-906aad2007c4f840.svg": {
+    "display": true,
+    "latex": "3\\longrightarrow8\\longrightarrow16\\longrightarrow24\\ \\mathrm{req/s},"
+  },
+  "display-93d8e5a16e00085a.svg": {
+    "display": true,
+    "latex": "C_0=3,\\qquad C_1=8,\\qquad C_2=16,\\qquad C_3=24."
+  },
+  "display-71879799fe6d84e3.svg": {
+    "display": true,
+    "latex": "P_j=\\bigwedge_c\\left(\n\\mathrm{failed}_{c,j}=0\n\\land \\mathrm{P99\\_TTFT}_{c,j}\\le S_c^{\\mathrm{TTFT}}\n\\land \\mathrm{P99\\_E2E}_{c,j}\\le S_c^{\\mathrm{E2E}}\n\\right)."
+  },
+  "display-bb8e659a730f50f4.svg": {
+    "display": true,
+    "latex": "A_j\\setminus\\bigcup_{i<j}A_i\\ne\\varnothing."
+  },
+  "display-8cccfd7927d18580.svg": {
+    "display": true,
+    "latex": "P_{j-1}\\land P_j\n\\land \\mathrm{fresh}(A_{j-1})\n\\land \\mathrm{fresh}(A_j)\n\\Rightarrow C_m\\to C_{m+1}."
+  },
+  "display-aa61f222e20bb4db.svg": {
+    "display": true,
+    "latex": "V_{j-1}\\land V_j\\Rightarrow C_m\\to C_{m-1}."
+  },
+  "display-e0ac82f690f152bd.svg": {
+    "display": true,
+    "latex": "E(C_0)=E(C_1)=E(C_2)=E(C_3)\n\\Rightarrow R(C_m,C_{m+1})=0,"
+  },
+  "display-43ffc845b5700a8b.svg": {
+    "display": true,
+    "latex": "\\max_{\\pi}\\quad\n\\mathbb{E}[G(\\pi)]-\\lambda\\,\\mathbb{E}[N_{\\mathrm{fault}}(\\pi)]"
+  },
+  "display-360c639ff7e63d8c.svg": {
+    "display": true,
+    "latex": "\\mathrm{s.t.}\\quad\n\\mathrm{P99\\_TTFT}_c\\le S_c^{\\mathrm{TTFT}},\\quad\n\\mathrm{P99\\_E2E}_c\\le S_c^{\\mathrm{E2E}},\\quad\nC_t\\in\\{3,8,16,24\\},\\quad\nR_{\\mathrm{compatible}}=0."
+  },
+  "display-11472ec811aa2405.svg": {
+    "display": true,
+    "latex": "\\Delta N_{\\mathrm{fault}}=48-16=32,\n\\qquad\n\\frac{48-16}{48}=66.7\\%."
+  },
+  "display-578e4f38b76f2f25.svg": {
+    "display": true,
+    "latex": "\\text{detect}\\to C_1\n\\xrightarrow{2\\ \\mathrm{fresh\\ pass}}C_2\n\\xrightarrow{2\\ \\mathrm{fresh\\ pass}}C_3,"
+  },
+  "inline-760d9378b79d9135.svg": {
+    "display": false,
+    "latex": "A_j"
+  },
+  "inline-12e6965948c0e102.svg": {
+    "display": false,
+    "latex": "K=2"
+  },
+  "inline-aa36d464b75cd66e.svg": {
+    "display": false,
+    "latex": "m"
+  },
+  "inline-82c90ce1027a828f.svg": {
+    "display": false,
+    "latex": "m+1"
+  },
+  "inline-67433b8c622daf4d.svg": {
+    "display": false,
+    "latex": "N_{\\mathrm{fault}}"
+  },
+  "inline-4f1f2d5e964bfd20.svg": {
+    "display": false,
+    "latex": "\\pi"
+  },
+  "display-4949a01b86beace1.svg": {
+    "display": true,
+    "latex": "C_0=3\\longrightarrow C_1=8\\longrightarrow C_2=16\\longrightarrow C_3=24."
+  },
+  "display-18ab32bd5aaa8abe.svg": {
+    "display": true,
+    "latex": "\\frac{48-16}{48}=66.7\\%."
+  },
+  "display-a987a08541c2fddb.svg": {
+    "display": true,
+    "latex": "S_c^{\\mathrm{TTFT}}\n=3.0\\max_s Q^{\\mathrm{TTFT}}_{0,c,s},\n\\qquad\nS_c^{\\mathrm{E2E}}\n=1.4\\max_s Q^{\\mathrm{E2E}}_{0,c,s}."
+  },
+  "display-e3bc9d7b25bfcdfd.svg": {
+    "display": true,
+    "latex": "C_{w,e}\n=\\max\\left\\{\nr:\\sum_{s=1}^{3}I_{w,e,r,s}=3\n\\right\\}."
+  },
+  "display-57c40424aec5aeaf.svg": {
+    "display": true,
+    "latex": "C_1=C_L+\\frac{C_H-C_L}{3},\n\\qquad\nC_2=C_L+\\frac{2(C_H-C_L)}{3}."
+  },
+  "display-d19dd96208888a3a.svg": {
+    "display": true,
+    "latex": "C_L<C_1<C_2<C_H."
+  },
+  "inline-7c63851d910ede54.svg": {
+    "display": false,
+    "latex": "Q^{m}_{0,c,s}"
+  },
+  "inline-43578947cb89d2f5.svg": {
+    "display": false,
+    "latex": "I_{w,e,r,s}=1"
+  },
+  "inline-bb73f75a8917b63a.svg": {
+    "display": false,
+    "latex": "e"
+  },
+  "inline-5e1969d3a5d2e5a4.svg": {
+    "display": false,
+    "latex": "C_L"
+  },
+  "inline-7a20d56614243239.svg": {
+    "display": false,
+    "latex": "C_H"
+  },
+  "display-71cd6cd4c79040a2.svg": {
+    "display": true,
+    "latex": "G(\\pi)=\\frac{1}{T}\\sum_{r=1}^{N}\n\\mathbf{1}\\!\\left[\nH_r=200\\ \\land\\\nL^{\\mathrm{TTFT}}_r\\le S^{\\mathrm{TTFT}}_{c(r)}\\ \\land\\\nL^{\\mathrm{E2E}}_r\\le S^{\\mathrm{E2E}}_{c(r)}\n\\right]."
+  },
+  "display-0daea464756c647b.svg": {
+    "display": true,
+    "latex": "d_s=M_{s,\\mathrm{canary}}-M_{s,\\mathrm{binary}},\n\\qquad\n\\bar d=\\frac{1}{5}\\sum_{s=1}^{5}d_s."
+  },
+  "display-2797166a394eca34.svg": {
+    "display": true,
+    "latex": "\\mathrm{CI}_{95\\%}(\\bar d)\n=\\bar d\\pm t_{0.975,4}\\frac{s_d}{\\sqrt{5}},\n\\qquad t_{0.975,4}=2.776."
+  },
+  "display-579ec5224caabe8e.svg": {
+    "display": true,
+    "latex": "E_{\\mathrm{binary}}=48,\n\\qquad\nE_{\\mathrm{canary}}=16,\n\\qquad\n\\frac{E_{\\mathrm{binary}}-E_{\\mathrm{canary}}}\n{E_{\\mathrm{binary}}}=66.7\\%."
+  },
+  "display-c93da9a4d4c3390d.svg": {
+    "display": true,
+    "latex": "\\text{支付 }0.549\\ \\mathrm{req/s}\\text{ 的平均 goodput}\n+39.8\\ \\mathrm{s}\\text{ 的满容量恢复时间，}"
+  },
+  "display-22e4075837a59ace.svg": {
+    "display": true,
+    "latex": "\\text{换取受控故障中 }66.7\\%\\text{ 的首轮暴露缩减。}"
+  },
+  "display-d86f278e892a338c.svg": {
+    "display": true,
+    "latex": "\\bar d_G=-0.549\\ \\mathrm{req/s},\n\\qquad\n\\mathrm{CI}_{95\\%}=[-0.802,-0.295],"
+  },
+  "display-506dac421a23a78f.svg": {
+    "display": true,
+    "latex": "\\bar d_{T_{\\mathrm{full}}}=+39.800\\ \\mathrm{s},\n\\qquad\n\\mathrm{CI}_{95\\%}=[35.28,44.32]."
+  },
+  "display-3a81c104bb96b1db.svg": {
+    "display": true,
+    "latex": "C_{w,e} \\ge 12,"
+  },
+  "display-4b11493d8658364f.svg": {
+    "display": true,
+    "latex": "\\sum_{s\\in\\{111,112,113\\}} I_{w,e,\\max R_w^{(0)},s}=3."
+  },
+  "display-c56421c36488ba30.svg": {
+    "display": true,
+    "latex": "\\hat C_{w,e}=\\max\\left\\{r:\\sum_{s\\in S(r)} I_{w,e,r,s}=3\\right\\}."
+  },
+  "inline-a30c949d8adafcf4.svg": {
+    "display": false,
+    "latex": "C_{w,e}=12"
+  },
+  "inline-5cbc84224fb72318.svg": {
+    "display": false,
+    "latex": "R_w^{(0)}"
+  },
+  "inline-40faf5ac8921aea4.svg": {
+    "display": false,
+    "latex": "S(r)=\\{111,112,113\\}"
+  },
+  "inline-701fa780de128473.svg": {
+    "display": false,
+    "latex": "S(r)=\\{114,115,116\\}"
+  },
+  "inline-0ec9114d2010fc8e.svg": {
+    "display": false,
+    "latex": "\\hat C_{w,e}"
+  }
+}

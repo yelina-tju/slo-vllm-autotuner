@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "question": "Can fresh SLO violations after compatible capacity recovery restore the last safe policy without restarting or immediately retrying?",
+  "guard_enabled": {
+    "enabled": true,
+    "actions": [
+      "switch",
+      "hold",
+      "rollback",
+      "hold"
+    ],
+    "reasons": [
+      "confirmed workload profile balanced",
+      "SLO violation awaiting rollback confirmation: balanced: P99 TTFT 120.00 > 100.00 ms; balanced: P99 E2E 430.00 > 400.00 ms",
+      "confirmed SLO violation: balanced: P99 TTFT 125.00 > 100.00 ms; balanced: P99 E2E 440.00 > 400.00 ms",
+      "capacity-increase recovery cooldown is active"
+    ],
+    "transitions": [
+      {
+        "timestamp_s": 10,
+        "action": "switch",
+        "from_policy": "mixed_80_20:selected:mbt1024_fcfs",
+        "to_policy": "balanced:mbt1024-seq256",
+        "active_profile": "balanced",
+        "reason": "confirmed workload profile balanced",
+        "pending_profile": null,
+        "pending_count": 0,
+        "cooldown_until_s": 0,
+        "admission_limit_rps": 24.0,
+        "server_environment": {
+          "MAX_NUM_BATCHED_TOKENS": "1024",
+          "MAX_NUM_SEQS": "256",
+          "SCHEDULING_POLICY": "fcfs"
+        },
+        "requires_server_restart": false,
+        "detector": {
+          "timestamp_s": 10,
+          "sample_count": 100,
+          "estimated_rps": 24,
+          "distribution": {
+            "balanced": 1.0,
+            "prefill_heavy": 0.0,
+            "decode_heavy": 0.0
+          },
+          "profile_distances": {
+            "balanced": 0.0,
+            "mixed_80_20": 0.2,
+            "prefill_heavy_4x": 1.0,
+            "decode_heavy_4x": 1.0
+          },
+          "best_profile": "balanced",
+          "best_distance": 0.0,
+          "status": "ready"
+        }
+      },
+      {
+        "timestamp_s": 30,
+        "action": "rollback",
+        "from_policy": "balanced:mbt1024-seq256",
+        "to_policy": "mixed_80_20:selected:mbt1024_fcfs",
+        "active_profile": "mixed_80_20",
+        "reason": "confirmed SLO violation: balanced: P99 TTFT 125.00 > 100.00 ms; balanced: P99 E2E 440.00 > 400.00 ms",
+        "pending_profile": null,
+        "pending_count": 0,
+        "cooldown_until_s": 330.0,
+        "admission_limit_rps": 3.0,
+        "server_environment": {
+          "MAX_NUM_BATCHED_TOKENS": "1024",
+          "MAX_NUM_SEQS": "256",
+          "SCHEDULING_POLICY": "fcfs"
+        },
+        "requires_server_restart": false,
+        "detector": null
+      }
+    ],
+    "restart_count": 0,
+    "final_state": {
+      "active_profile": "mixed_80_20",
+      "active_policy": "mixed_80_20:selected:mbt1024_fcfs",
+      "pending_profile": null,
+      "pending_count": 0,
+      "cooldown_until_s": 330.0,
+      "last_evaluation_s": 40,
+      "consecutive_slo_violations": 0,
+      "seen_slo_violation_request_ids": [],
+      "recovery_rollback_policy": null,
+      "recovery_rollback_profile": null,
+      "capacity_increase_block_until_s": 330.0,
+      "admission_limit_rps": 3.0,
+      "server_environment": {
+        "MAX_NUM_BATCHED_TOKENS": "1024",
+        "MAX_NUM_SEQS": "256",
+        "SCHEDULING_POLICY": "fcfs"
+      }
+    }
+  },
+  "guard_disabled": {
+    "enabled": false,
+    "actions": [
+      "switch",
+      "hold",
+      "alert",
+      "hold"
+    ],
+    "reasons": [
+      "confirmed workload profile balanced",
+      "SLO violation awaiting rollback confirmation: balanced: P99 TTFT 120.00 > 100.00 ms; balanced: P99 E2E 430.00 > 400.00 ms",
+      "confirmed SLO violation but no distinct rollback exists: balanced: P99 TTFT 125.00 > 100.00 ms; balanced: P99 E2E 440.00 > 400.00 ms",
+      "active profile retained by distance/hysteresis"
+    ],
+    "transitions": [
+      {
+        "timestamp_s": 10,
+        "action": "switch",
+        "from_policy": "mixed_80_20:selected:mbt1024_fcfs",
+        "to_policy": "balanced:mbt1024-seq256",
+        "active_profile": "balanced",
+        "reason": "confirmed workload profile balanced",
+        "pending_profile": null,
+        "pending_count": 0,
+        "cooldown_until_s": 0,
+        "admission_limit_rps": 24.0,
+        "server_environment": {
+          "MAX_NUM_BATCHED_TOKENS": "1024",
+          "MAX_NUM_SEQS": "256",
+          "SCHEDULING_POLICY": "fcfs"
+        },
+        "requires_server_restart": false,
+        "detector": {
+          "timestamp_s": 10,
+          "sample_count": 100,
+          "estimated_rps": 24,
+          "distribution": {
+            "balanced": 1.0,
+            "prefill_heavy": 0.0,
+            "decode_heavy": 0.0
+          },
+          "profile_distances": {
+            "balanced": 0.0,
+            "mixed_80_20": 0.2,
+            "prefill_heavy_4x": 1.0,
+            "decode_heavy_4x": 1.0
+          },
+          "best_profile": "balanced",
+          "best_distance": 0.0,
+          "status": "ready"
+        }
+      }
+    ],
+    "restart_count": 0,
+    "final_state": {
+      "active_profile": "balanced",
+      "active_policy": "balanced:mbt1024-seq256",
+      "pending_profile": null,
+      "pending_count": 0,
+      "cooldown_until_s": 0,
+      "last_evaluation_s": 40,
+      "consecutive_slo_violations": 2,
+      "seen_slo_violation_request_ids": [
+        5001,
+        5002
+      ],
+      "recovery_rollback_policy": null,
+      "recovery_rollback_profile": null,
+      "capacity_increase_block_until_s": 0.0,
+      "admission_limit_rps": 24.0,
+      "server_environment": {
+        "MAX_NUM_BATCHED_TOKENS": "1024",
+        "MAX_NUM_SEQS": "256",
+        "SCHEDULING_POLICY": "fcfs"
+      }
+    }
+  },
+  "interpretation": "The enabled guard performs an admission-only rollback from 24 to 3 req/s and blocks immediate re-expansion; the disabled counterfactual can only alert and remains at 24 req/s."
+}

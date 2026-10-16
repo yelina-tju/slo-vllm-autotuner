@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "reason": "The base grid produced a lower bound for at least one candidate. This extension was frozen before observing any extension-seed outcome.",
+  "extension_seeds": [
+    114,
+    115,
+    116
+  ],
+  "workloads": {
+    "balanced": {
+      "base_manifest_sha256": "fdad8ffd8c76c634d09153955c2ee933273e34fe15aff5c1356bfc5946b5c452",
+      "base_policy_sha256": "5f9a96cc9c421cd9b7b86d65bc6c30e54c691934e0a4bfecc58516eb322197bf",
+      "base_grid_ceiling_rps": 12,
+      "triggered_candidates": [
+        "mbt1024_fcfs",
+        "mbt2048_fcfs"
+      ],
+      "extension_rates_rps": [
+        14,
+        16,
+        18,
+        20,
+        24
+      ],
+      "extension_manifest": "configs/generalization_7b_balanced_capacity_final_search.json"
+    },
+    "mixed": {
+      "base_manifest_sha256": "ca222845dbb94ac63b1935a20c2fd9b444396325fe99e875207017001c575ee1",
+      "base_policy_sha256": "6eff10c3bc137219f2c3106f02908ab02576ccc319a226aefbe1d74c32cfaf60",
+      "base_grid_ceiling_rps": 4,
+      "triggered_candidates": [],
+      "extension_rates_rps": [
+        5,
+        6,
+        8,
+        10
+      ],
+      "extension_manifest": "configs/generalization_7b_mixed_capacity_final_search.json"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "description": "Experiment 017 frozen 7B balanced capacity workload.",
+  "classes": [
+    {
+      "name": "interactive_short",
+      "weight": 1.0,
+      "input_tokens": 256,
+      "output_tokens": 64,
+      "priority": 0,
+      "ttft_slo_ms": 730.5078562349079,
+      "e2el_slo_ms": 2407.1432022899385
+    }
+  ]
+}

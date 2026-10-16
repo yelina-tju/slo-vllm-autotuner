@@ -1,0 +1,81 @@
+{
+  "description": "Experiment 017 Qwen2.5-7B balanced capacity evidence, including the preregistered right-censor extension.",
+  "model": "qwen2.5-7b",
+  "seeds": [
+    111,
+    112,
+    113,
+    114,
+    115,
+    116
+  ],
+  "planned_rates_rps": [
+    1.0,
+    2.0,
+    4.0,
+    6.0,
+    8.0,
+    10.0,
+    12.0,
+    14.0,
+    16.0,
+    18.0,
+    20.0,
+    24.0
+  ],
+  "early_stopping": "stop higher rates for a candidate after the first rate that does not pass all three seeds",
+  "evidence_policy": {
+    "min_repetitions": 3,
+    "required_window_pass_rate": 1.0
+  },
+  "candidates": [
+    {
+      "name": "mbt1024_fcfs",
+      "max_num_batched_tokens": 1024,
+      "scheduling_policy": "fcfs",
+      "patterns": [
+        "generalization7b_balanced_rps*_mbt1024_fcfs_seed*.json"
+      ]
+    },
+    {
+      "name": "mbt2048_fcfs",
+      "max_num_batched_tokens": 2048,
+      "scheduling_policy": "fcfs",
+      "patterns": [
+        "generalization7b_balanced_rps*_mbt2048_fcfs_seed*.json"
+      ]
+    }
+  ],
+  "base_seeds": [
+    111,
+    112,
+    113
+  ],
+  "extension_seeds": [
+    114,
+    115,
+    116
+  ],
+  "base_planned_rates_rps": [
+    1.0,
+    2.0,
+    4.0,
+    6.0,
+    8.0,
+    10.0,
+    12.0
+  ],
+  "extension_planned_rates_rps": [
+    14.0,
+    16.0,
+    18.0,
+    20.0,
+    24.0
+  ],
+  "extension_candidates": [
+    "mbt1024_fcfs",
+    "mbt2048_fcfs"
+  ],
+  "extension_trigger": "passed the highest observed base-grid rate in 3/3 seeds",
+  "extension_early_stopping": "for each triggered candidate, stop after the first extension rate that does not pass all three new seeds"
+}
